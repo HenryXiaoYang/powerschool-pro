@@ -12,6 +12,7 @@ import { HomePage } from '@/features/home/HomePage'
 import { ReportCardPage } from '@/features/report/ReportCardPage'
 import { ReportPage } from '@/features/report/ReportPage'
 import { SchedulePage } from '@/features/schedule/SchedulePage'
+import { SettingsPage } from '@/features/settings/SettingsPage'
 import { persistOptions, queryClient } from '@/lib/persist'
 import { RouteError } from './RouteError'
 import { Backdrop, Shell } from './Shell'
@@ -47,6 +48,7 @@ const router = createBrowserRouter([
               { path: 'grades', element: <GradesPage /> },
               { path: 'assignments', element: <AssignmentsPage /> },
               { path: 'attendance', element: <AttendancePage /> },
+              { path: 'settings', element: <SettingsPage /> },
               { path: 'report', element: <ReportPage /> },
               { path: 'report/:id', element: <ReportCardPage /> },
               { path: '*', element: <Navigate to="/" replace /> },

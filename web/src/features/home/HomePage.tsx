@@ -75,22 +75,22 @@ function NowNext({ snap, day, now, courses }: { snap: Snapshot; day: Today; now:
 
   return (
     <section
-      className={cn('glass relative order-1 overflow-hidden rounded-xl p-5 sm:p-6 lg:order-none', live && 'lit')}
+      className={cn('glass relative order-1 overflow-hidden rounded-xl p-4 sm:p-6 lg:order-none', live && 'lit')}
       style={{ '--hue': hue ?? 220 } as CSSProperties}
       aria-label={live ? 'Current class' : 'Next class'}
     >
       <div className="flex items-start gap-3">
-        <CourseDot hue={hue} className="mt-3 size-3" />
-        <h2 className="text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-3xl">{c?.title ?? 'Class'}</h2>
+        <CourseDot hue={hue} className="mt-2 size-3 sm:mt-3" />
+        <h2 className="text-xl leading-tight font-semibold tracking-tight text-balance sm:text-3xl">{c?.title ?? 'Class'}</h2>
       </div>
-      <dl className="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-sm sm:grid-cols-4 sm:gap-x-6">
+      <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm sm:mt-4 sm:grid-cols-4 sm:gap-x-6">
         <Fact label={live ? 'Ends' : 'Starts'} value={live ? inMinutes(minsLeft) : startsIn} accent />
         <Fact label="Time" value={`${clockTime(m.start, snap.timeZone)}–${clockTime(m.end, snap.timeZone)}`} />
         <Fact label="Room" value={c?.room || '—'} />
         <Fact label="Teacher" value={c?.teacher?.name || '—'} />
       </dl>
       {live && (
-        <div className="mt-5 flex items-center gap-3">
+        <div className="mt-4 flex items-center gap-3">
           <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-muted" role="progressbar" aria-label="Class progress" aria-valuenow={Math.round(progress)}>
             <div className="h-full rounded-full bg-now transition-[width] duration-700" style={{ width: `${progress}%` }} />
           </div>
@@ -176,13 +176,16 @@ function Timeline({ snap, day, now, courses }: { snap: Snapshot; day: Today; now
                 <Link
                   to={`/classes/${m.courseId}`}
                   data-row
-                  className={cn('relative flex items-center gap-3 rounded-md px-2 py-2 transition-colors hover:bg-accent/50', live && 'lit', past && 'opacity-50')}
+                  className={cn('relative flex items-center gap-2.5 rounded-md px-1.5 py-1.5 transition-colors hover:bg-accent/50 sm:gap-3 sm:px-2 sm:py-2', live && 'lit', past && 'opacity-50')}
                   style={{ '--hue': hue ?? 220 } as CSSProperties}
                 >
-                  <span className="tabular w-11 shrink-0 text-sm text-muted-foreground">{clockTime(m.start, snap.timeZone)}</span>
+                  <span className="tabular w-10 shrink-0 text-[13px] text-muted-foreground sm:w-11 sm:text-sm">{clockTime(m.start, snap.timeZone)}</span>
                   <CourseDot hue={hue} />
-                  <span className={cn('line-clamp-2 min-w-0 flex-1', c?.academic ? 'font-medium' : 'text-muted-foreground')}>{c?.title}</span>
-                  {c?.room && <span className="shrink-0 text-xs text-muted-foreground">{c.room}</span>}
+                  <span className="min-w-0 flex-1">
+                    <span className={cn('line-clamp-2 text-[15px] leading-snug sm:text-base', c?.academic ? 'font-medium' : 'text-muted-foreground')}>{c?.title}</span>
+                    {c?.room && <span className="block text-xs text-muted-foreground sm:hidden">{c.room}</span>}
+                  </span>
+                  {c?.room && <span className="hidden shrink-0 text-xs text-muted-foreground sm:inline">{c.room}</span>}
                 </Link>
               </li>
             )

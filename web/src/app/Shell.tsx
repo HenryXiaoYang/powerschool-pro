@@ -1,9 +1,8 @@
 import { useIsFetching, useQueryClient } from '@tanstack/react-query'
-import { ArrowLeft, Ellipsis, LogOut, RotateCw } from 'lucide-react'
-import { useState } from 'react'
+import { ArrowLeft, LogOut, RotateCw } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, Outlet, ScrollRestoration, useLocation } from 'react-router'
 import { Button } from '@/components/ui/button'
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { signOut } from '@/features/auth/session'
 import { ago, clockTime, formatDate, schoolDate } from '@/lib/dates'
@@ -74,56 +73,67 @@ function Rail() {
   )
 }
 
-function TabBar() {
+/** One item's width in the phone dock: wide enough for the labels, narrow enough that the
+    next item peeks in (4.7 visible on a 390px phone) so the bar reads as swipeable. */
+const DOCK_ITEM = 'w-19 shrink-0'
+
+/** Phone dock: every section in one bar that swipes sideways. The lens slides to the open one. */
+function Dock() {
   const { pathname } = useLocation()
-  const [more, setMore] = useState(false)
-  const moreActive = NAV.some((n) => !n.tab && isActive(n.to, pathname))
-  const tabs = NAV.filter((n) => n.tab)
-  const active = moreActive ? tabs.length : tabs.findIndex((n) => isActive(n.to, pathname))
-  const item = 'relative flex h-14 flex-1 flex-col items-center justify-center gap-0.5 rounded-full text-[11px] font-medium transition duration-200 active:scale-[0.94]'
+  const active = NAV.findIndex((n) => isActive(n.to, pathname))
+  const scroller = useRef<HTMLDivElement>(null)
+  const [edges, setEdges] = useState({ start: true, end: false })
+
+  const measure = () => {
+    const el = scroller.current
+    if (el) setEdges({ start: el.scrollLeft < 4, end: el.scrollLeft + el.clientWidth > el.scrollWidth - 4 })
+  }
+  // Keep the open section on screen, and centred when the bar has to scroll for it.
+  useEffect(() => {
+    const el = scroller.current
+    const item = el?.querySelectorAll<HTMLElement>('[data-dock-item]')[active]
+    if (!el || !item) return measure()
+    const left = item.offsetLeft - (el.clientWidth - item.offsetWidth) / 2
+    el.scrollTo({ left, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
+  }, [active])
+  useEffect(measure, [])
+
+  // Fade the edge that has more behind it, so the cut-off item reads as "keep swiping".
+  const mask = `linear-gradient(to right, ${edges.start ? '#000' : 'transparent'}, #000 18px, #000 calc(100% - 18px), ${edges.end ? '#000' : 'transparent'})`
   return (
-    <nav aria-label="Main" className="no-print fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-40 rail:hidden">
-      <div className="glass relative mx-auto flex max-w-lg rounded-full p-1">
-        {active >= 0 && (
-          <span
-            aria-hidden
-            className={cn('bead pointer-events-none absolute inset-y-1 left-1 rounded-full bg-primary', SLIDE)}
-            style={{ width: `calc((100% - 0.5rem) / ${tabs.length + 1})`, transform: `translateX(${active * 100}%)` }}
-          />
-        )}
-        {tabs.map(({ to, label, icon: Icon }) => (
-          <NavLink key={to} to={to} className={cn(item, isActive(to, pathname) ? 'text-primary-foreground' : 'text-muted-foreground')}>
-            <Icon className="size-5" strokeWidth={1.8} />
-            {label}
-          </NavLink>
-        ))}
-        <Sheet open={more} onOpenChange={setMore}>
-          <SheetTrigger className={cn(item, moreActive ? 'text-primary-foreground' : 'text-muted-foreground')}>
-            <Ellipsis className="size-5" strokeWidth={1.8} />
-            More
-          </SheetTrigger>
-          <SheetContent side="bottom" className="glass rounded-t-2xl border-x-0 border-b-0 bg-popover pb-[max(1.5rem,env(safe-area-inset-bottom))]">
-            <SheetHeader>
-              <SheetTitle>More</SheetTitle>
-              <SheetDescription className="sr-only">Other sections and sign out</SheetDescription>
-            </SheetHeader>
-            <div className="grid gap-1 px-4">
-              {NAV.filter((n) => !n.tab).map(({ to, label, icon: Icon }) => (
-                <Link
-                  key={to}
-                  to={to}
-                  onClick={() => setMore(false)}
-                  className={cn('flex h-12 items-center gap-3 rounded-md px-3 font-medium', isActive(to, pathname) ? 'bead bg-primary text-primary-foreground' : 'hover:bg-accent')}
-                >
-                  <Icon className="size-5" strokeWidth={1.8} /> {label}
-                </Link>
-              ))}
-              <button onClick={() => void signOut()} className="flex h-12 items-center gap-3 rounded-md px-3 font-medium text-muted-foreground hover:bg-accent">
-                <LogOut className="size-5" strokeWidth={1.8} /> Sign out
-              </button>
-            </div>
-          </SheetContent>
-        </Sheet>
+    <nav aria-label="Main" className="no-print fixed inset-x-3 bottom-[max(0.5rem,calc(env(safe-area-inset-bottom)-0.5rem))] z-40 rail:hidden">
+      <div className="glass dock mx-auto max-w-lg rounded-full">
+        <div
+          ref={scroller}
+          onScroll={measure}
+          className="dock-scroll overflow-x-auto rounded-full p-1"
+          style={{ WebkitMaskImage: mask, maskImage: mask }}
+        >
+          <div className="relative flex w-max">
+            {active >= 0 && (
+              <span
+                aria-hidden
+                className={cn('dock-bead pointer-events-none absolute inset-y-0 left-0 rounded-full', DOCK_ITEM, SLIDE)}
+                style={{ transform: `translateX(${active * 100}%)` }}
+              />
+            )}
+            {NAV.map(({ to, label, icon: Icon }) => (
+              <NavLink
+                key={to}
+                to={to}
+                data-dock-item
+                className={cn(
+                  DOCK_ITEM,
+                  'relative flex h-14 flex-col items-center justify-center gap-0.5 rounded-full text-[11px] font-medium transition duration-200 active:scale-[0.94]',
+                  isActive(to, pathname) ? 'text-primary-foreground' : 'text-muted-foreground',
+                )}
+              >
+                <Icon className="size-5" strokeWidth={1.8} />
+                {label}
+              </NavLink>
+            ))}
+          </div>
+        </div>
       </div>
     </nav>
   )
@@ -145,7 +155,7 @@ function Freshness() {
       <Button
         variant="ghost"
         size="icon"
-        className="size-11 rounded-full md:pointer-fine:size-9"
+        className="size-11 shrink-0 rounded-full md:pointer-fine:size-9"
         aria-label="Refresh"
         disabled={fetching}
         onClick={() => void qc.invalidateQueries()}
@@ -170,17 +180,17 @@ function Title({ pathname }: { pathname: string }) {
       </Link>
     )
   }
-  if (pathname !== '/' || !snap) return <h1 className="text-2xl font-semibold tracking-tight">{titleFor(pathname) || 'Home'}</h1>
+  if (pathname !== '/' || !snap) return <h1 className="text-xl font-semibold tracking-tight md:text-2xl">{titleFor(pathname) || 'Home'}</h1>
   const date = schoolDate(now, snap.timeZone)
   const hour = Number(clockTime(now.toISOString(), snap.timeZone).slice(0, 2))
   const cycle = snap.schedule.days.find((d) => d.date === date)
   return (
     <div className="min-w-0">
-      <h1 className="truncate text-2xl font-semibold tracking-tight">
+      <h1 className="line-clamp-2 text-xl leading-tight font-semibold tracking-tight md:truncate md:text-2xl">
         {greeting(hour)}
         {snap.profile.firstName && `, ${snap.profile.firstName}`}
       </h1>
-      <p className="text-sm text-muted-foreground">
+      <p className="text-[13px] text-muted-foreground md:text-sm">
         {formatDate(date, { weekday: 'long', day: 'numeric', month: 'long' })}
         {cycle?.day && ` · Day ${cycle.day}`}
       </p>
@@ -194,15 +204,15 @@ export function Shell() {
     <div className="mx-auto flex min-h-dvh max-w-[1500px] items-start gap-5 md:p-5 lg:gap-6 lg:p-8">
       <Rail />
       <div className="min-w-0 flex-1 md:glass md:min-h-[calc(100dvh-2.5rem)] md:rounded-2xl lg:min-h-[calc(100dvh-4rem)]">
-        <header className="flex min-h-[4.75rem] items-center justify-between gap-3 px-4 pt-5 pb-3 sm:px-6 md:min-h-[5.5rem] md:pt-6">
+        <header className="flex min-h-14 items-center justify-between gap-2 px-4 pt-[max(0.75rem,calc(env(safe-area-inset-top)+0.25rem))] pb-2 sm:px-6 md:min-h-[5.5rem] md:gap-3 md:pt-6 md:pb-3">
           <Title pathname={pathname} />
           <Freshness />
         </header>
-        <main key={pathname} className="settle px-3 pb-28 sm:px-6 rail:pb-6">
+        <main key={pathname} className="settle px-3 pb-[calc(6rem+env(safe-area-inset-bottom))] sm:px-6 rail:pb-6">
           <Outlet />
         </main>
       </div>
-      <TabBar />
+      <Dock />
       {/* New pages open at the top; back/forward restores where you were. */}
       <ScrollRestoration />
     </div>

@@ -1,22 +1,21 @@
 import type { LucideIcon } from 'lucide-react'
-import { BookOpen, CalendarDays, ClipboardCheck, FileText, GraduationCap, House, UserCheck } from 'lucide-react'
+import { BookOpen, CalendarDays, ClipboardCheck, FileText, GraduationCap, House, Settings, UserCheck } from 'lucide-react'
 
 export interface NavItem {
   to: string
   label: string
   icon: LucideIcon
-  /** Shown in the phone tab bar; the rest live under More. */
-  tab: boolean
 }
 
 export const NAV: NavItem[] = [
-  { to: '/', label: 'Home', icon: House, tab: true },
-  { to: '/schedule', label: 'Schedule', icon: CalendarDays, tab: true },
-  { to: '/classes', label: 'Classes', icon: BookOpen, tab: true },
-  { to: '/assignments', label: 'Assignments', icon: ClipboardCheck, tab: true },
-  { to: '/grades', label: 'Grades', icon: GraduationCap, tab: false },
-  { to: '/attendance', label: 'Attendance', icon: UserCheck, tab: false },
-  { to: '/report', label: 'Report', icon: FileText, tab: false },
+  { to: '/', label: 'Home', icon: House },
+  { to: '/schedule', label: 'Schedule', icon: CalendarDays },
+  { to: '/classes', label: 'Classes', icon: BookOpen },
+  { to: '/assignments', label: 'Assignments', icon: ClipboardCheck },
+  { to: '/grades', label: 'Grades', icon: GraduationCap },
+  { to: '/attendance', label: 'Attendance', icon: UserCheck },
+  { to: '/report', label: 'Report', icon: FileText },
+  { to: '/settings', label: 'Settings', icon: Settings },
 ]
 
 export function titleFor(pathname: string): string {
