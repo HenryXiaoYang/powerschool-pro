@@ -5,11 +5,9 @@ import (
 	"log/slog"
 	"net/http"
 	"strings"
-	"sync"
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"golang.org/x/time/rate"
 
 	"github.com/HenryXiaoYang/powerschool-mirror/server/internal/session"
 	"github.com/HenryXiaoYang/powerschool-mirror/server/internal/student"
@@ -67,40 +65,4 @@ func requireSession(s *session.Sealer) gin.HandlerFunc {
 
 func credentials(c *gin.Context) student.Credentials {
 	return c.MustGet(credentialsKey).(student.Credentials)
-}
-
-// limiter is a set of token buckets, one per key, that drops keys idle for an hour.
-type limiter struct {
-	every   time.Duration
-	burst   int
-	mu      sync.Mutex
-	buckets map[string]*bucket
-}
-
-func newLimiter(every time.Duration, burst int) *limiter {
-	return &limiter{every: every, burst: burst, buckets: map[string]*bucket{}}
-}
-
-func (l *limiter) allow(key string) bool {
-	l.mu.Lock()
-	defer l.mu.Unlock()
-	if len(l.buckets) > 10_000 { // drop idle buckets instead of growing forever
-		for k, b := range l.buckets {
-			if time.Since(b.seen) > time.Hour {
-				delete(l.buckets, k)
-			}
-		}
-	}
-	b, ok := l.buckets[key]
-	if !ok {
-		b = &bucket{limiter: rate.NewLimiter(rate.Every(l.every), l.burst)}
-		l.buckets[key] = b
-	}
-	b.seen = time.Now()
-	return b.limiter.Allow()
-}
-
-type bucket struct {
-	limiter *rate.Limiter
-	seen    time.Time
 }

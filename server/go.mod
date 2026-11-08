@@ -7,7 +7,6 @@ require (
 	github.com/gin-contrib/gzip v1.2.9
 	github.com/gin-gonic/gin v1.12.0
 	golang.org/x/net v0.62.0
-	golang.org/x/time v0.0.0-20191024005414-555d28b269f0
 )
 
 require (

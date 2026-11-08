@@ -26,7 +26,6 @@ export const CodeInvalidCredentials: ErrorCode = "invalid_credentials";
 export const CodeSessionExpired: ErrorCode = "session_expired";
 export const CodeBadRequest: ErrorCode = "bad_request";
 export const CodeNotFound: ErrorCode = "not_found";
-export const CodeRateLimited: ErrorCode = "rate_limited";
 export const CodeUpstream: ErrorCode = "upstream_error";
 export const CodeTimeout: ErrorCode = "timeout";
 export const CodeInternal: ErrorCode = "internal";

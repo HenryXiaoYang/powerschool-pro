@@ -4,7 +4,6 @@ package httpapi
 import (
 	"net/http"
 	"strconv"
-	"strings"
 	"time"
 
 	"github.com/gin-contrib/cors"
@@ -24,9 +23,6 @@ type Options struct {
 type handlers struct {
 	svc    *student.Service
 	sealer *session.Sealer
-	// Per account on an IP, so a classmate guessing from another device can't lock you out.
-	// No cap per IP: a whole school can sign in from one network or proxy.
-	perAccount *limiter
 }
 
 func New(svc *student.Service, sealer *session.Sealer, opt Options) *gin.Engine {
@@ -42,7 +38,7 @@ func New(svc *student.Service, sealer *session.Sealer, opt Options) *gin.Engine 
 		}))
 	}
 
-	h := handlers{svc: svc, sealer: sealer, perAccount: newLimiter(12*time.Second, 5)}
+	h := handlers{svc: svc, sealer: sealer}
 	r.GET("/healthz", func(c *gin.Context) { c.String(http.StatusOK, "ok") })
 
 	// Snapshot and schedule JSON shrink ~10x; bearer auth (no cookies) keeps BREACH out of reach.
@@ -67,10 +63,6 @@ func (h handlers) login(c *gin.Context) {
 	var req LoginRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
 		abort(c, http.StatusBadRequest, CodeBadRequest, "Username and password are required.")
-		return
-	}
-	if !h.perAccount.allow(c.ClientIP() + "|" + strings.ToLower(strings.TrimSpace(req.Username))) {
-		abort(c, http.StatusTooManyRequests, CodeRateLimited, "Too many sign-in attempts. Wait a minute.")
 		return
 	}
 	creds, err := h.svc.Login(c.Request.Context(), req.Username, req.Password)

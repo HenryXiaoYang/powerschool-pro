@@ -8,7 +8,6 @@ import (
 	"net/http/httptest"
 	"os"
 	"path/filepath"
-	"strconv"
 	"strings"
 	"testing"
 	"time"
@@ -128,17 +127,6 @@ func TestAPIErrors(t *testing.T) {
 	}
 }
 
-func TestLoginRateLimit(t *testing.T) {
-	r, _ := testServer(t)
-	var last int
-	for range 7 {
-		last = do(r, http.MethodPost, "/api/session", "", `{"username":"a","password":"`+fake.WrongPassword+`"}`).Code
-	}
-	if last != http.StatusTooManyRequests {
-		t.Errorf("7th attempt: %d, want 429", last)
-	}
-}
-
 func TestGzip(t *testing.T) {
 	r, _ := testServer(t)
 	token := login(t, r)
@@ -161,16 +149,6 @@ func TestGzip(t *testing.T) {
 }
 
 // Classmates behind one school IP must not lock each other out.
-func TestLoginRateLimitIsPerAccount(t *testing.T) {
-	r, _ := testServer(t)
-	for i := range 40 { // more than any per-IP cap would allow
-		body := `{"username":"student` + strconv.Itoa(i) + `","password":"pw"}`
-		if code := do(r, http.MethodPost, "/api/session", "", body).Code; code != http.StatusOK {
-			t.Fatalf("classmate %d: %d, want 200", i, code)
-		}
-	}
-}
-
 func TestWebApp(t *testing.T) {
 	dir := t.TempDir()
 	_ = os.WriteFile(filepath.Join(dir, "index.html"), []byte("app"), 0o644)

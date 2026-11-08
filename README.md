@@ -29,7 +29,7 @@ The browser can't call PowerSchool directly: the mobile API needs HTTP Digest au
 - `internal/powerschool/portal`: the web portal's form login. It is used only for report cards, which are re-served as script-free HTML with images inlined.
 - `internal/student`: joins and school rules: assignment ↔ score, attendance ↔ course, A/B rotation days, Asia/Shanghai dates, suppressed percents. It never computes a grade.
 - `internal/session`: both upstream sessions are sealed (AES-GCM) into the bearer token. The server stores nothing.
-- `internal/httpapi`: routes, CORS, gzip, a sign-in rate limit per account and IP (no per-IP cap, so a whole school on one network or proxy can sign in), and logs that never include bodies or tokens.
+- `internal/httpapi`: routes, CORS, gzip, and logs that never include bodies or tokens.
 
 | Endpoint | |
 |---|---|

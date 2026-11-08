@@ -27,7 +27,6 @@ const (
 	CodeSessionExpired     ErrorCode = "session_expired"
 	CodeBadRequest         ErrorCode = "bad_request"
 	CodeNotFound           ErrorCode = "not_found"
-	CodeRateLimited        ErrorCode = "rate_limited"
 	CodeUpstream           ErrorCode = "upstream_error"
 	CodeTimeout            ErrorCode = "timeout"
 	CodeInternal           ErrorCode = "internal"
