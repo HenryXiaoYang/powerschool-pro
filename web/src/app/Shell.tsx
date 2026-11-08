@@ -73,9 +73,9 @@ function Rail() {
   )
 }
 
-/** One item's width in the phone dock: wide enough for the labels, narrow enough that the
-    next item peeks in (4.7 visible on a 390px phone) so the bar reads as swipeable. */
-const DOCK_ITEM = 'w-19 shrink-0'
+/** One item's width in the phone dock: a whole fifth of the bar (a quarter on narrow phones),
+    so the bar always shows whole items and swipes snap item by item. */
+const DOCK_ITEM = 'w-[25cqw] shrink-0 @min-[21rem]:w-[20cqw]'
 
 /** Phone dock: every section in one bar that swipes sideways. The lens slides to the open one. */
 function Dock() {
@@ -106,7 +106,7 @@ function Dock() {
         <div
           ref={scroller}
           onScroll={measure}
-          className="dock-scroll overflow-x-auto rounded-full p-1"
+          className="dock-scroll @container overflow-x-auto rounded-full p-1"
           style={{ WebkitMaskImage: mask, maskImage: mask }}
         >
           <div className="relative flex w-max">

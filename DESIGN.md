@@ -295,7 +295,7 @@ A frosted-white pill behind the chosen item, with the bead lift shadow. In the r
 
 ### Navigation
 - **Rail (768px+, 544px+ tall, fine pointer):** a vertical glass pill with 44px round icon buttons (20px Lucide icons at stroke 1.8), muted ink, an accent tint on hover, and a 0.94 press. The active item carries the bead. Tooltips appear on the right, and sign-out sits below a hairline.
-- **Dock (phones, touch tablets, short windows):** a floating glass pill holding every section as 76px items (icon plus 11px label) that swipes sideways. About 4.7 items show on a 390px phone, so the next one peeks in, and the edge with more behind it fades. The dock is denser than a panel (`glass` mixed 35% toward `glass-strong`) so labels stay legible over scrolling content. The active item carries a clear-glass lens, brighter than the bar, and the bar scrolls it into view. Sign out lives in Settings on phones.
+- **Dock (phones, touch tablets, short windows):** a floating glass pill holding every section (icon plus 11px label) that swipes sideways. Items are a fifth of the bar (a quarter below a 336px bar), so it always shows whole items, swipes snap item by item, and the edge with more behind it fades. The dock is denser than a panel (`glass` mixed 35% toward `glass-strong`) so labels stay legible over scrolling content. The active item carries a clear-glass lens, brighter than the bar, and the bar scrolls it into view. Sign out lives in Settings on phones.
 - **Settings › Appearance (stored on the device):** glass opacity (20–200% of the designed alpha), blur (0–40px; 16px default on phones, 24px elsewhere; 0 removes the filter), liquid glass edges, and calm mode (still backdrop, no pane settle).
 
 ### Grade Badge
