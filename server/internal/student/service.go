@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"log/slog"
-	"sync"
 	"time"
 
 	"github.com/HenryXiaoYang/powerschool-mirror/server/internal/powerschool"
@@ -49,14 +48,9 @@ func NewService(m Mobile, p Portal, loc *time.Location) *Service {
 
 // Login signs in to both channels concurrently. The mobile sign-in decides success.
 func (s *Service) Login(ctx context.Context, username, password string) (Credentials, error) {
-	var (
-		wg      sync.WaitGroup
-		ps      portal.Session
-		portErr error
-	)
-	wg.Go(func() { ps, portErr = s.portal.Login(ctx, username, password) })
+	// Portal first, never in parallel: a portal sign-in revokes any mobile ticket issued before it.
+	ps, portErr := s.portal.Login(ctx, username, password)
 	ms, err := s.mobile.Login(ctx, username, password)
-	wg.Wait()
 	if err != nil {
 		return Credentials{}, err
 	}

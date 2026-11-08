@@ -14,6 +14,7 @@ import (
 
 	"github.com/HenryXiaoYang/powerschool-mirror/server/internal/powerschool/mobile"
 	"github.com/HenryXiaoYang/powerschool-mirror/server/internal/powerschool/portal"
+	"github.com/HenryXiaoYang/powerschool-mirror/server/internal/session"
 	"github.com/HenryXiaoYang/powerschool-mirror/server/internal/student"
 )
 
@@ -107,4 +108,35 @@ func TestLivePortal(t *testing.T) {
 	if out := os.Getenv("LIVE_OUT"); out != "" {
 		_ = os.WriteFile(out, []byte(page), 0o600)
 	}
+}
+
+// TestLiveService follows the API's real path: mobile and portal sign-in together, then the snapshot.
+func TestLiveService(t *testing.T) {
+	env := liveEnv(t)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Minute)
+	defer cancel()
+	m, err := mobile.New(env["SCHOOL_BASE_URL"], nil, mobile.DefaultServiceUser, mobile.DefaultServicePassword)
+	if err != nil {
+		t.Fatal(err)
+	}
+	p, err := portal.New(env["SCHOOL_BASE_URL"], nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+	svc := student.NewService(m, p, time.UTC)
+	creds, err := svc.Login(ctx, env["USERNAME"], env["PASSWORD"])
+	if err != nil {
+		t.Fatal(err)
+	}
+	// The API keeps credentials sealed in the bearer token: round-trip them the same way.
+	sealer, _ := session.NewSealer(make([]byte, 32), time.Hour)
+	token, err := sealer.Seal(creds)
+	if err != nil || sealer.Open(token, &creds) != nil {
+		t.Fatal("seal round-trip failed", err)
+	}
+	snap, err := svc.Snapshot(ctx, creds)
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Logf("service snapshot: courses=%d portal=%v", len(snap.Courses), creds.Portal != nil)
 }
