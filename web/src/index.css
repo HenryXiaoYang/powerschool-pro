@@ -347,6 +347,14 @@ html[data-calm] .settle .glass { animation: none; }
   animation-duration: 340ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
+/* Groups stack in the old page's paint order, so a pill sliding left would cover the labels
+   it passes. Labels go above it; the page and the week grid stay below. */
+::view-transition-group(*) { z-index: 1; }
+::view-transition-group(root),
+::view-transition-group(week),
+::view-transition-group(status-pill),
+::view-transition-group(day-pill),
+::view-transition-group(term-pill) { z-index: 0; }
 
 /* Local swaps (filters, chips, week paging): the old view goes at once, so nothing lingers
    while the pill travels. */
