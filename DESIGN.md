@@ -171,13 +171,13 @@ components:
 
 Mirror is one frosted window floating over slowly drifting ocean colour. Everything a student touches is the same glass, a single material at different depths, and the backdrop moves so slowly you barely notice it. The screen has one bright object, the class happening now, lit from within in its course's hue. Selection is frosted white: a bead of brighter glass that slides from one choice to the next. There are two blues for time. Cyan means "now" and moves; sky blue means "today" and stays put.
 
-The density suits quick checks between classes. Tiles hold a few facts each, numbers use tabular figures, and headings are plain sentence-case titles with no ornament. Phone, iPad and desktop all use the same pieces. A floating icon rail sits beside the window on wide screens, and a glass tab bar takes its place on phones. Light and dark follow the system setting: ice blue with milky glass and ink text, or navy with smoked glass and white text.
+The density suits quick checks between classes. Tiles hold a few facts each, numbers use tabular figures, and headings are plain sentence-case titles with no ornament. Phone, iPad and desktop all use the same pieces. A floating icon rail sits beside the window on wide screens, and a swipeable glass dock takes its place on phones. Light and dark follow the system setting: ice blue with milky glass and ink text, or navy with smoked glass and white text.
 
 Motion is the window settling. New pages come up from a soft 6px blur, the selection bead travels to where you tapped, week pages slide the way you paged, and the timeline fills down to the present moment while a dot pulses at its tip. Reduced motion stops all of it. Reduced transparency swaps in near-opaque glass.
 
 **Key Characteristics:**
 - One surface material (frosted glass) over a four-blob deep-ocean mesh that drifts over about 60 to 90 seconds.
-- Frosted-white selection bead that slides between choices: a CSS transform in the rail and tab bar, view transitions for in-page filters and chips.
+- Frosted-white selection bead that slides between choices: a CSS transform in the rail and dock, view transitions for in-page filters and chips.
 - Cyan "now" for live time, sky-blue "today" for date labels, and course hues taken in order from a 10-hue OKLCH ring.
 - IB grades 7 to 1 on a fixed ramp from lime through teal and amber to rose. Lime appears nowhere else.
 - Geist Variable for every role, with tabular figures. Chinese falls back to PingFang SC.
@@ -228,7 +228,7 @@ The palette is cool and watery: navy or ice-blue ground, colourless glass, one w
 - **Title** (600, 15px, -0.025em): Panel headings. These are plain sentence-case headings.
 - **Body** (500 for item names, 400 for prose, 0.875rem, 1.43): list rows, facts, table cells and filter labels. Explanatory copy stays within about 24rem (`max-w-sm`).
 - **Label** (400, 0.75rem): fact labels, timestamps, secondary lines and the "Updated 3 min ago" freshness note.
-- **Label Small** (500, 11px): tab bar labels, flag chips and week-strip day codes. 11px is the floor.
+- **Label Small** (500, 11px): dock labels, flag chips and week-strip day codes. 11px is the floor.
 
 ### Named Rules
 **The One Family Rule.** Every role uses Geist Variable. Hierarchy comes from size, weight (400/500/600) and tight tracking. Never add a separate display face.
@@ -237,7 +237,7 @@ The palette is cool and watery: navy or ice-blue ground, colourless glass, one w
 
 ## Layout
 
-The rail appears only with room and a hovering pointer: at least 768px wide, 480px tall, and a mouse or trackpad (the `rail` variant). Touch tablets, landscape phones and short windows keep the labelled tab bar, capped at 32rem and centred, because rail labels live in hover tooltips. Compact control sizes (36–40px) also apply only with a fine pointer; touch keeps 44px at every width. The week grid needs about 150px per day, so it starts at `lg` (1024px); below that Schedule uses the day list. Every class block, day-list row and timeline row opens its course page, so a truncated name is always one tap from in full. On `md` (768px) and wider, a floating glass rail (pill-shaped, 44px icon targets) sits detached to the left of one large glass window, with a 20px gap (24px at `lg`). The shell is centred at a maximum of 1500px with a 20px outer gutter (32px at `lg`), and the window is at least full-viewport height. Below `md` the window has no glass of its own. The page sits straight on the mesh and a glass tab bar floats 12px above the bottom safe area. Content keeps 112px of bottom padding so the bar never covers it.
+The rail appears only with room and a hovering pointer: at least 768px wide, 544px tall, and a mouse or trackpad (the `rail` variant). Touch tablets, landscape phones and short windows keep the labelled dock, capped at 32rem and centred, because rail labels live in hover tooltips. Compact control sizes (36–40px) also apply only with a fine pointer; touch keeps 44px at every width. The week grid needs about 150px per day, so it starts at `lg` (1024px); below that Schedule uses the day list. Every class block, day-list row and timeline row opens its course page, so a truncated name is always one tap from in full. On `md` (768px) and wider, a floating glass rail (pill-shaped, 44px icon targets) sits detached to the left of one large glass window, with a 20px gap (24px at `lg`). The shell is centred at a maximum of 1500px with a 20px outer gutter (32px at `lg`), and the window is at least full-viewport height. Below `md` the window has no glass of its own. The page sits straight on the mesh and the glass dock floats 8px above the bottom safe area. Content keeps 96px of bottom padding plus the safe area so the dock never covers it. The phone header clears the top safe area and wraps a long greeting to two lines.
 
 The window header runs at least 76px tall (88px at `md`), with the title on the left and freshness and refresh on the right. Content padding is 12px on phones and 24px from `sm`. Tiles stack with a 12px gap (16px from `sm`). At `lg` (1024px), Home becomes a 12-column grid split 7/5, and the columns size to their content. On phones the same tiles follow task order (Now/Next, timeline, week, scores, term). Tile padding is 16px (20px from `sm`) and list rows sit on 10px vertical padding. From `md` up the scrollbar gutter is reserved so page width never shifts.
 
@@ -246,23 +246,25 @@ The window header runs at least 76px tall (88px at `md`), with the title on the 
 Depth comes from a single glass material. There are no shadow levels to choose between. Every surface uses the same recipe: translucent fill, 24px backdrop blur with 150% saturation, a 1px rim, a 1px inner top highlight, and one long, soft drop shadow that reads as a pane floating over water. Content nested inside glass sits in sunk wells that add a tint and a hairline, with no second blur. Two things rise above the plane. The selection bead is brighter glass with its own highlight and lift. The live class glows in its course hue.
 
 ### Shadow Vocabulary
-- **Glass float** (`box-shadow: inset 0 1px 0 var(--glass-highlight), 0 18px 40px -18px var(--glass-shadow)`): every glass surface (window, rail, tab bar, Panels, filter bars, fields, sheet).
+- **Glass float** (`box-shadow: inset 0 1px 0 var(--glass-highlight), 0 18px 40px -18px var(--glass-shadow)`): every glass surface (window, rail, dock, Panels, filter bars, fields).
 - **Bead lift** (`box-shadow: inset 0 1px 0 oklch(1 0 0 / 0.9), inset 0 0 0 1px oklch(1 0 0 / 0.6), 0 6px 18px -6px oklch(0.2 0.06 262 / 0.45)`): the frosted-white selection and the primary button.
 - **Lit from within** (radial course-hue wash from the top-left corner (0.42 light, 0.2 dark), flat 0.14 hue tint, hue rim at 0.5, `0 18px 40px -16px` hue glow): the live class only, wherever it appears (the Now tile, its timeline row, its week-grid block, and its row in the day list).
 
 ### Named Rules
 **The One Material Rule.** Glass is the only surface, at two depths at most: the window, and the tiles and controls on it (on phones the tiles sit straight on the mesh). Anything inside a tile becomes a sunk well. Dropping the tiles' own blur was measured: it saved little and lightened them, so they keep it.
 
+**The Liquid Edge Rule.** By default every glass surface also carries a specular rim and a diagonal sheen at 180% saturation ("liquid glass"). It is made from gradients and inset shadows only, never an extra blur pass, and Settings can turn it off for plain frost.
+
 **The Lit From Within Rule.** The live class is the brightest object on screen. No other element may use a coloured glow.
 
 ## Shapes
 
-Corners are soft and nest by depth. The window and sign-in card use 28px, Panels and the Now tile use 20px, wells and day cells use 16px, and rows, badges and the sign-in button use 12px. Anything you pick from a set (rail, tab bar, segmented filters, select triggers, search field, bead, flag chips, course dots) is fully round. Borders are always 1px: a glass rim, a hairline, or a 40% tone rim on chips and attendance codes. The phone sheet rises with 28px top corners.
+Corners are soft and nest by depth. The window and sign-in card use 28px, Panels and the Now tile use 20px, wells and day cells use 16px, and rows, badges and the sign-in button use 12px. Anything you pick from a set (rail, dock, segmented filters, select triggers, search field, bead, flag chips, course dots) is fully round. Borders are always 1px: a glass rim, a hairline, or a 40% tone rim on chips and attendance codes.
 
 ## Components
 
 ### Selection Bead (signature)
-A frosted-white pill behind the chosen item, with the bead lift shadow. In the rail and tab bar it is one element that slides by CSS transform (380ms, `cubic-bezier(0.16, 1, 0.3, 1)`): 50px steps in the rail, one fifth of the bar per tab. In-page choices (assignment status, phone term and day chips) use a view-transition name (`status-pill`, `term-pill`, `day-pill`) and travel for 340ms; those swaps drop the old view immediately and their labels carry their own names, so only the bead moves and it never covers its label. The label switches to `on-primary`.
+A frosted-white pill behind the chosen item, with the bead lift shadow. In the rail and dock it is one element that slides by CSS transform (380ms, `cubic-bezier(0.16, 1, 0.3, 1)`): 50px steps in the rail, one item width in the dock (where it is the clear-glass lens). In-page choices (assignment status, phone term and day chips) use a view-transition name (`status-pill`, `term-pill`, `day-pill`) and travel for 340ms; those swaps drop the old view immediately and their labels carry their own names, so only the bead moves and it never covers its label. The label switches to `on-primary`.
 
 ### Segmented Filters
 - **Style:** a glass pill bar (4px inset) holding round segments, 44px on phones and 36px from `sm`, with 16px side padding. The text is medium-weight 14px in muted ink.
@@ -284,7 +286,7 @@ A frosted-white pill behind the chosen item, with the bead lift shadow. In the r
 - **Background:** `glass`, or `glass-strong` under reduced transparency.
 - **Shadow Strategy:** Glass float.
 - **Border:** 1px `glass-edge`.
-- **Internal Padding:** 16px, or 20px from `sm`. The Panel header is a plain 15px semibold title with an optional muted action link ("All ›", "Week ›") on the right.
+- **Internal Padding:** 14px, or 20px from `sm`. The Panel header is a plain 15px semibold title with an optional muted action link ("All ›", "Week ›") on the right.
 
 ### Inputs / Fields
 - **Style:** filter fields are round glass pills, 44px on phones and 40px from `sm` (select triggers, and a search field with a faint leading icon). Sign-in fields are 44px with a 12px radius on the hairline input stroke.
@@ -292,8 +294,9 @@ A frosted-white pill behind the chosen item, with the bead lift shadow. In the r
 - **Error:** a rose message in a 40% rose rim, with no fill.
 
 ### Navigation
-- **Rail (768px+, 480px+ tall, fine pointer):** a vertical glass pill with 44px round icon buttons (20px Lucide icons at stroke 1.8), muted ink, an accent tint on hover, and a 0.94 press. The active item carries the bead. Tooltips appear on the right, and sign-out sits below a hairline.
-- **Tab bar (phones, touch tablets, short windows):** a floating glass pill with five 56px items (icon plus 11px label). "More" opens a glass bottom sheet listing the other sections, and the bead marks whichever item is active.
+- **Rail (768px+, 544px+ tall, fine pointer):** a vertical glass pill with 44px round icon buttons (20px Lucide icons at stroke 1.8), muted ink, an accent tint on hover, and a 0.94 press. The active item carries the bead. Tooltips appear on the right, and sign-out sits below a hairline.
+- **Dock (phones, touch tablets, short windows):** a floating glass pill holding every section as 76px items (icon plus 11px label) that swipes sideways. About 4.7 items show on a 390px phone, so the next one peeks in, and the edge with more behind it fades. The dock is denser than a panel (`glass` mixed 35% toward `glass-strong`) so labels stay legible over scrolling content. The active item carries a clear-glass lens, brighter than the bar, and the bar scrolls it into view. Sign out lives in Settings on phones.
+- **Settings › Appearance (stored on the device):** glass opacity (20–200% of the designed alpha), blur (0–40px; 16px default on phones, 24px elsewhere; 0 removes the filter), liquid glass edges, and calm mode (still backdrop, no pane settle).
 
 ### Grade Badge
 A tabular semibold grade on its ramp colour with same-hue ink, in three sizes (24, 32 and 48px squares that grow with the text, 12px radius, 16px at large). Grades that have no ramp step use a neutral sunk badge.
