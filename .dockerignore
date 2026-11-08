@@ -1,0 +1,6 @@
+.env
+bin
+.impeccable
+web/node_modules
+web/dist
+server/**/*_test.go

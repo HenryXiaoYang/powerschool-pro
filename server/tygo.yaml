@@ -1,0 +1,15 @@
+# go tool tygo generate — Go DTOs are the source of truth for web/src/api/*.gen.ts
+packages:
+  - path: github.com/HenryXiaoYang/powerschool-mirror/server/internal/student
+    output_path: ../web/src/api/student.gen.ts
+    include_files: [model.go]
+    optional_type: "null"
+    type_mappings:
+      time.Time: string
+  - path: github.com/HenryXiaoYang/powerschool-mirror/server/internal/httpapi
+    output_path: ../web/src/api/api.gen.ts
+    include_files: [dto.go]
+    type_mappings:
+      student.ReportCard: student.ReportCard
+    frontmatter: |
+      import type * as student from "./student.gen";

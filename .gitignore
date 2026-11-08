@@ -1,0 +1,7 @@
+.env
+bin/
+web/node_modules/
+web/dist/
+.impeccable/review/
+.DS_Store
+.impeccable/hook.cache.json

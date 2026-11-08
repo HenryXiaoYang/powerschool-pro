@@ -1,0 +1,334 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+/* Theme follows the system setting. */
+@custom-variant dark (@media (prefers-color-scheme: dark));
+
+/* The icon rail needs room for all eight stops and a pointer that can hover its labels.
+   Touch tablets and short or landscape screens keep the labelled tab bar instead. */
+@custom-variant rail (@media (min-width: 48rem) and (min-height: 30rem) and (pointer: fine));
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: 'Geist Variable', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif;
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-now: var(--now);
+  --color-today: var(--today);
+  --color-faint: var(--faint);
+  --color-warn: var(--warn);
+  --color-alert: var(--alert);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+  --radius-3xl: 32px;
+}
+
+/* Light: ice-blue ground, milky glass, ink text. */
+:root {
+  --ground: oklch(0.95 0.02 250);
+  --mesh-1: oklch(0.85 0.08 245);
+  --mesh-2: oklch(0.9 0.07 210);
+  --mesh-3: oklch(0.85 0.07 278);
+  --mesh-4: oklch(0.91 0.05 230);
+
+  --glass: oklch(1 0 0 / 0.46);
+  --glass-strong: oklch(1 0 0 / 0.78);
+  --glass-sunk: oklch(0.2 0.03 240 / 0.05);
+  --glass-edge: oklch(1 0 0 / 0.7);
+  --glass-highlight: oklch(1 0 0 / 0.9);
+  --glass-shadow: oklch(0.35 0.05 240 / 0.18);
+
+  --foreground: oklch(0.24 0.03 245);
+  --muted-foreground: oklch(0.45 0.03 245);
+  --faint: oklch(0.5 0.025 245);
+  --background: var(--ground);
+  --card: var(--glass);
+  --card-foreground: var(--foreground);
+  --popover: oklch(0.98 0.01 220 / 0.94);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(1 0 0);                 /* frosted-white selection bead */
+  --primary-foreground: oklch(0.26 0.06 262);
+  --secondary: oklch(0.2 0.03 240 / 0.06);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.2 0.03 240 / 0.06);
+  --accent: oklch(0.2 0.03 240 / 0.08);
+  --accent-foreground: var(--foreground);
+  --destructive: oklch(0.56 0.2 22);
+  --border: oklch(0.3 0.03 245 / 0.12);
+  --input: oklch(0.3 0.03 245 / 0.16);
+  --ring: oklch(0.6 0.13 225);
+
+  --today: oklch(0.5 0.15 258);
+  --now: oklch(0.49 0.14 228);
+  --warn: oklch(0.52 0.12 70);
+  --alert: oklch(0.55 0.19 20);
+  --course-l: 0.66;
+  --course-c: 0.14;
+}
+
+/* Dark: deep-ocean navy ground, smoked glass, white text. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: oklch(0.2 0.045 260);
+    --mesh-1: oklch(0.37 0.12 262);
+    --mesh-2: oklch(0.39 0.09 238);
+    --mesh-3: oklch(0.4 0.075 212);
+    --mesh-4: oklch(0.3 0.1 276);
+
+    /* Smoked, not milky: a navy pane keeps text AA over the brightest blob. */
+    --glass: oklch(0.18 0.035 260 / 0.38);
+    --glass-strong: oklch(0.3 0.035 258 / 0.82);
+    --glass-sunk: oklch(0 0 0 / 0.16);
+    --glass-edge: oklch(1 0 0 / 0.12);
+    --glass-highlight: oklch(1 0 0 / 0.16);
+    --glass-shadow: oklch(0 0 0 / 0.4);
+
+    --foreground: oklch(0.97 0.005 235);
+    --muted-foreground: oklch(0.8 0.015 235);
+    --faint: oklch(0.68 0.02 235);
+    --popover: oklch(0.27 0.035 258 / 0.94);
+    --primary: oklch(0.97 0.008 250);
+    --primary-foreground: oklch(0.24 0.06 262);
+    --secondary: oklch(1 0 0 / 0.08);
+    --muted: oklch(1 0 0 / 0.07);
+    --accent: oklch(1 0 0 / 0.1);
+    --destructive: oklch(0.72 0.17 22);
+    --border: oklch(1 0 0 / 0.1);
+    --input: oklch(1 0 0 / 0.14);
+    --ring: oklch(0.82 0.13 215);
+
+    --today: oklch(0.86 0.09 235);
+    --now: oklch(0.82 0.13 215);
+    --warn: oklch(0.85 0.14 80);
+    --alert: oklch(0.75 0.16 20);
+    --course-l: 0.8;
+    --course-c: 0.13;
+    --lit-wash: 0.2;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    /* The canvas shows through the scrollbar gutter, where the fixed mesh can't reach;
+       tint it like the mesh's right edge so the gutter reads as part of the backdrop. */
+    background: linear-gradient(to bottom, var(--ground), var(--mesh-3) 45%, var(--mesh-2)) fixed var(--ground);
+    color-scheme: light dark;
+    -webkit-tap-highlight-color: transparent;
+    scrollbar-color: var(--faint) transparent;
+  }
+  /* Reserve the scrollbar's space on every page, so short and long pages are the same width
+     (classic scrollbars only; phones use overlay scrollbars). */
+  @media (min-width: 768px) {
+    html { scrollbar-gutter: stable; }
+  }
+  body {
+    @apply text-foreground antialiased;
+    background: transparent;
+    min-height: 100dvh;
+    /* Landscape phones: keep content clear of the notch. */
+    padding-inline: env(safe-area-inset-left) env(safe-area-inset-right);
+  }
+  ::selection {
+    background: color-mix(in oklch, var(--now) 40%, transparent);
+    color: inherit;
+  }
+  input,
+  textarea {
+    caret-color: var(--now);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  a {
+    text-underline-offset: 3px;
+  }
+}
+
+/* Frosted glass, the one surface material. */
+@utility glass {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  backdrop-filter: blur(24px) saturate(150%);
+  border: 1px solid var(--glass-edge);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    0 18px 40px -18px var(--glass-shadow);
+}
+
+/* Nested well inside glass: no second blur, just a sunk tint. */
+@utility glass-sunk {
+  background: var(--glass-sunk);
+  border: 1px solid var(--border);
+}
+
+/* The selection bead: white glass lit from the top, lifted off the surface. */
+@utility bead {
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 0.9),
+    inset 0 0 0 1px oklch(1 0 0 / 0.6),
+    0 6px 18px -6px oklch(0.2 0.06 262 / 0.45);
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glass: var(--glass-strong);
+  }
+}
+
+/* The drifting mesh behind everything. */
+.mesh {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--ground);
+}
+.mesh span {
+  position: absolute;
+  width: 70vmax;
+  height: 70vmax;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.85;
+  animation: drift 60s ease-in-out infinite alternate;
+}
+.mesh span:nth-child(1) { background: var(--mesh-1); top: -25vmax; left: -15vmax; }
+.mesh span:nth-child(2) { background: var(--mesh-2); bottom: -35vmax; right: -20vmax; animation-duration: 75s; animation-direction: alternate-reverse; }
+.mesh span:nth-child(3) { background: var(--mesh-3); top: 20vmax; right: -30vmax; width: 50vmax; height: 50vmax; animation-duration: 90s; }
+.mesh span:nth-child(4) { background: var(--mesh-4); bottom: -20vmax; left: 10vmax; width: 40vmax; height: 40vmax; opacity: 0.5; animation-duration: 66s; }
+@keyframes drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(8vmax, 6vmax, 0) scale(1.12); }
+}
+
+/* Route content settles from soft focus. The page only rises: opacity or a filter on it
+   would hide the backdrop from the glass inside, which then snaps to colour at the end.
+   Each glass surface fades and focuses itself instead (its own opacity applies after its blur). */
+.settle {
+  animation: settle-rise 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.settle .glass {
+  animation: settle-focus 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes settle-rise {
+  from { transform: translateY(4px); }
+}
+@keyframes settle-focus {
+  from { opacity: 0; filter: blur(6px); }
+}
+@keyframes settle-fade {
+  from { opacity: 0; }
+}
+
+/* The current class is lit from within in its course hue: the brightest glass on screen. */
+.lit {
+  background:
+    radial-gradient(120% 140% at 0% 0%, oklch(var(--course-l) var(--course-c) var(--hue) / var(--lit-wash, 0.42)), transparent 70%),
+    linear-gradient(oklch(var(--course-l) var(--course-c) var(--hue) / 0.14), oklch(var(--course-l) var(--course-c) var(--hue) / 0.14)),
+    var(--glass);
+  border-color: oklch(var(--course-l) var(--course-c) var(--hue) / 0.5);
+  box-shadow:
+    inset 0 1px 0 oklch(var(--course-l) calc(var(--course-c) * 0.6) var(--hue) / 0.9),
+    0 18px 40px -16px oklch(var(--course-l) var(--course-c) var(--hue) / 0.45);
+}
+
+/* Page changes need no snapshot: the old page leaves at once and the new one settles in
+   (.settle), so translucent glass never double-exposes. View transitions are kept for
+   in-page swaps only (below). */
+::view-transition-group(root) { animation: none; }
+::view-transition-new(root) { animation: none; }
+
+/* The selection pill travels to its new place. */
+::view-transition-group(status-pill),
+::view-transition-group(day-pill),
+::view-transition-group(term-pill) {
+  animation-duration: 340ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Local swaps (filters, chips, week paging): the old view goes at once, so nothing lingers
+   while the pill travels. */
+html[data-vt]::view-transition-old(root) { animation: none; opacity: 0; }
+
+/* Week paging: the timetable slides the way you moved. */
+::view-transition-group(week) { animation: none; }
+html[data-vt="next"]::view-transition-old(week) { animation: week-out 170ms cubic-bezier(0.4, 0, 1, 1) both; --dir: -1; }
+html[data-vt="next"]::view-transition-new(week) { animation: week-in 300ms cubic-bezier(0.16, 1, 0.3, 1) both; --dir: 1; }
+html[data-vt="prev"]::view-transition-old(week) { animation: week-out 170ms cubic-bezier(0.4, 0, 1, 1) both; --dir: 1; }
+html[data-vt="prev"]::view-transition-new(week) { animation: week-in 300ms cubic-bezier(0.16, 1, 0.3, 1) both; --dir: -1; }
+@keyframes week-out { to { opacity: 0; transform: translateX(calc(var(--dir) * 24px)); filter: blur(4px); } }
+@keyframes week-in { from { opacity: 0; transform: translateX(calc(var(--dir) * 32px)); filter: blur(4px); } }
+
+/* The day fills the timeline track up to now; the marker rides its head and breathes. */
+.day-fill {
+  transform-origin: top;
+  transform: scaleY(var(--fill));
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: day-fill 750ms cubic-bezier(0.16, 1, 0.3, 1) 120ms both;
+}
+@keyframes day-fill { from { transform: scaleY(0); } }
+.now-dot {
+  transform: translate(-50%, calc(var(--y) - 50%));
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: now-arrive 750ms cubic-bezier(0.16, 1, 0.3, 1) 120ms both;
+}
+.now-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: var(--now);
+  animation: now-pulse 2.4s cubic-bezier(0.16, 1, 0.3, 1) 900ms infinite;
+}
+@keyframes now-arrive { from { transform: translate(-50%, -50%); } }
+@keyframes now-pulse {
+  from { opacity: 0.45; transform: scale(0.6); }
+  to { opacity: 0; transform: scale(2); }
+}
+.now-sweep {
+  transform-origin: left;
+  animation: now-sweep 500ms cubic-bezier(0.16, 1, 0.3, 1) 150ms both;
+}
+@keyframes now-sweep { from { transform: scaleX(0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .mesh span { animation: none; }
+  .settle { animation: none; }
+  .settle .glass { animation: settle-fade 200ms ease-out; }
+  ::view-transition-old(*), ::view-transition-new(*), ::view-transition-group(*) { animation-duration: 1ms !important; animation-delay: 0ms !important; }
+  .day-fill, .now-dot, .now-sweep, .now-dot::after { animation: none; transition: none; }
+}
+
+@media print {
+  .mesh, .no-print { display: none !important; }
+}

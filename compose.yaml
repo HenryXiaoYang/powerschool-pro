@@ -1,0 +1,16 @@
+# docker compose up -d --build   →  http://localhost:8000
+# Settings come from .env (see .env.example). Only the variables below reach the container.
+services:
+  app:
+    build: .
+    ports:
+      - "${PORT:-8000}:8080"
+    environment:
+      SCHOOL_BASE_URL: ${SCHOOL_BASE_URL:-}
+      SESSION_KEY: ${SESSION_KEY:-}
+      SCHOOL_TIMEZONE: ${SCHOOL_TIMEZONE:-}
+      SESSION_MAX_AGE: ${SESSION_MAX_AGE:-}
+      PS_SERVICE_USER: ${PS_SERVICE_USER:-}
+      PS_SERVICE_PASSWORD: ${PS_SERVICE_PASSWORD:-}
+      MOCK: ${MOCK:-}
+    restart: unless-stopped

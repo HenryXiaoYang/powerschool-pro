@@ -1,0 +1,3814 @@
+{
+ "studentId": 1001,
+ "yearId": 2027,
+ "student": {
+  "id": 1001,
+  "firstName": "Alex",
+  "middleName": null,
+  "lastName": "Rivera",
+  "gradeLevel": 11,
+  "currentGPA": null,
+  "currentTerm": "P2",
+  "dob": null
+ },
+ "schools": [
+  {
+   "schoolNumber": 1,
+   "name": "Synthetic High School",
+   "abbreviation": "SHS",
+   "currentTermId": 3600
+  }
+ ],
+ "sections": [
+  {
+   "courseCode": "SJCCA",
+   "dcid": 39723,
+   "description": null,
+   "enrollments": {
+    "endDate": "2026-11-25T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 569737,
+    "startDate": "2026-09-08T16:00:00.000Z"
+   },
+   "expression": "CA1(WA,WB)",
+   "gradeBookType": 2,
+   "id": 38868,
+   "periodSort": 13,
+   "roomName": "Baking Roo",
+   "schoolCourseTitle": "High School Co-Curriculum Activity",
+   "schoolNumber": 1800,
+   "sectionNum": "1BAKINGC",
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 569737,
+     "start": "2026-11-04T08:00:00.000Z",
+     "stop": "2026-11-04T09:00:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 569737,
+     "start": "2026-11-11T08:00:00.000Z",
+     "stop": "2026-11-11T09:00:00.000Z"
+    }
+   ],
+   "teacherID": 3705,
+   "termID": 3603
+  },
+  {
+   "courseCode": "TOK11",
+   "dcid": 38074,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-23T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 540429,
+    "startDate": "2026-08-30T16:00:00.000Z"
+   },
+   "expression": "1(MA,FB) 2(FA) 4(TB) 5(WB)",
+   "gradeBookType": 2,
+   "id": 37219,
+   "periodSort": 2,
+   "roomName": "S206",
+   "schoolCourseTitle": "11 TOK 知识论",
+   "schoolNumber": 1800,
+   "sectionNum": 12,
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 540429,
+     "start": "2026-11-02T00:00:00.000Z",
+     "stop": "2026-11-02T00:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540429,
+     "start": "2026-11-06T00:55:00.000Z",
+     "stop": "2026-11-06T01:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540429,
+     "start": "2026-11-10T02:55:00.000Z",
+     "stop": "2026-11-10T03:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540429,
+     "start": "2026-11-11T05:00:00.000Z",
+     "stop": "2026-11-11T05:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540429,
+     "start": "2026-11-13T00:00:00.000Z",
+     "stop": "2026-11-13T00:50:00.000Z"
+    }
+   ],
+   "teacherID": 6130,
+   "termID": 3600
+  },
+  {
+   "courseCode": "C4CPOL11",
+   "dcid": 37980,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-23T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 540425,
+    "startDate": "2026-08-30T16:00:00.000Z"
+   },
+   "expression": "3(MA) 4(THA)",
+   "gradeBookType": 2,
+   "id": 37125,
+   "periodSort": 4,
+   "roomName": "N304",
+   "schoolCourseTitle": "11 Politics C4C 思想政治中方四门课",
+   "schoolNumber": 1800,
+   "sectionNum": 12,
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 540425,
+     "start": "2026-11-02T02:00:00.000Z",
+     "stop": "2026-11-02T02:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540425,
+     "start": "2026-11-05T02:55:00.000Z",
+     "stop": "2026-11-05T03:45:00.000Z"
+    }
+   ],
+   "teacherID": 6506,
+   "termID": 3600
+  },
+  {
+   "courseCode": "BF",
+   "dcid": 39305,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-23T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 563426,
+    "startDate": "2026-08-30T16:00:00.000Z"
+   },
+   "expression": "BF(MA-FB)",
+   "gradeBookType": 2,
+   "id": 38450,
+   "periodSort": 1,
+   "roomName": null,
+   "schoolCourseTitle": "Breakfast 早餐",
+   "schoolNumber": 1800,
+   "sectionNum": "F",
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 563426,
+     "start": "2026-11-01T23:00:00.000Z",
+     "stop": "2026-11-01T23:30:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 563426,
+     "start": "2026-11-02T23:00:00.000Z",
+     "stop": "2026-11-02T23:30:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 563426,
+     "start": "2026-11-03T23:00:00.000Z",
+     "stop": "2026-11-03T23:30:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 563426,
+     "start": "2026-11-04T23:00:00.000Z",
+     "stop": "2026-11-04T23:30:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 563426,
+     "start": "2026-11-05T23:00:00.000Z",
+     "stop": "2026-11-05T23:30:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 563426,
+     "start": "2026-11-08T23:00:00.000Z",
+     "stop": "2026-11-08T23:30:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 563426,
+     "start": "2026-11-09T23:00:00.000Z",
+     "stop": "2026-11-09T23:30:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 563426,
+     "start": "2026-11-10T23:00:00.000Z",
+     "stop": "2026-11-10T23:30:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 563426,
+     "start": "2026-11-11T23:00:00.000Z",
+     "stop": "2026-11-11T23:30:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 563426,
+     "start": "2026-11-12T23:00:00.000Z",
+     "stop": "2026-11-12T23:30:00.000Z"
+    }
+   ],
+   "teacherID": 6125,
+   "termID": 3600
+  },
+  {
+   "courseCode": "LT",
+   "dcid": 39297,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-23T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 562971,
+    "startDate": "2026-08-30T16:00:00.000Z"
+   },
+   "expression": "LT2(MA-THA,MB-THB)",
+   "gradeBookType": 2,
+   "id": 38442,
+   "periodSort": 7,
+   "roomName": null,
+   "schoolCourseTitle": "Lunch Time 午餐",
+   "schoolNumber": 1800,
+   "sectionNum": "F1",
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 562971,
+     "start": "2026-11-02T04:10:00.000Z",
+     "stop": "2026-11-02T04:30:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 562971,
+     "start": "2026-11-03T04:15:00.000Z",
+     "stop": "2026-11-03T04:55:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 562971,
+     "start": "2026-11-04T04:15:00.000Z",
+     "stop": "2026-11-04T04:55:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 562971,
+     "start": "2026-11-05T04:15:00.000Z",
+     "stop": "2026-11-05T04:55:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 562971,
+     "start": "2026-11-09T04:10:00.000Z",
+     "stop": "2026-11-09T04:30:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 562971,
+     "start": "2026-11-10T04:15:00.000Z",
+     "stop": "2026-11-10T04:55:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 562971,
+     "start": "2026-11-11T04:15:00.000Z",
+     "stop": "2026-11-11T04:55:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 562971,
+     "start": "2026-11-12T04:15:00.000Z",
+     "stop": "2026-11-12T04:55:00.000Z"
+    }
+   ],
+   "teacherID": 6125,
+   "termID": 3600
+  },
+  {
+   "courseCode": "SSLO",
+   "dcid": 39289,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-23T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 562199,
+    "startDate": "2026-08-30T16:00:00.000Z"
+   },
+   "expression": "LO(MA-FB)",
+   "gradeBookType": 2,
+   "id": 38434,
+   "periodSort": 18,
+   "roomName": null,
+   "schoolCourseTitle": "Lights Out 熄灯",
+   "schoolNumber": 1800,
+   "sectionNum": "F",
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 562199,
+     "start": "2026-11-02T13:30:00.000Z",
+     "stop": "2026-11-02T14:00:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 562199,
+     "start": "2026-11-03T13:30:00.000Z",
+     "stop": "2026-11-03T14:00:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 562199,
+     "start": "2026-11-04T13:30:00.000Z",
+     "stop": "2026-11-04T14:00:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 562199,
+     "start": "2026-11-05T13:30:00.000Z",
+     "stop": "2026-11-05T14:00:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 562199,
+     "start": "2026-11-09T13:30:00.000Z",
+     "stop": "2026-11-09T14:00:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 562199,
+     "start": "2026-11-10T13:30:00.000Z",
+     "stop": "2026-11-10T14:00:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 562199,
+     "start": "2026-11-11T13:30:00.000Z",
+     "stop": "2026-11-11T14:00:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 562199,
+     "start": "2026-11-12T13:30:00.000Z",
+     "stop": "2026-11-12T14:00:00.000Z"
+    }
+   ],
+   "teacherID": 6125,
+   "termID": 3600
+  },
+  {
+   "courseCode": "STUDY11",
+   "dcid": 39332,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-23T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 564067,
+    "startDate": "2026-09-06T16:00:00.000Z"
+   },
+   "expression": "6(MB)",
+   "gradeBookType": 2,
+   "id": 38477,
+   "periodSort": 11,
+   "roomName": null,
+   "schoolCourseTitle": "11 Study Period",
+   "schoolNumber": 1800,
+   "sectionNum": 25,
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 564067,
+     "start": "2026-11-09T05:55:00.000Z",
+     "stop": "2026-11-09T06:45:00.000Z"
+    }
+   ],
+   "teacherID": 6643,
+   "termID": 3600
+  },
+  {
+   "courseCode": "11CHNALLSL",
+   "dcid": 37998,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-24T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 542805,
+    "startDate": "2026-08-31T16:00:00.000Z"
+   },
+   "expression": "3(WA,MB) 4(TA,FA-MB,WB,FB) 5(TB)",
+   "gradeBookType": 2,
+   "id": 37143,
+   "periodSort": 4,
+   "roomName": "S202",
+   "schoolCourseTitle": "11 Chinese A Language and Literature SL",
+   "schoolNumber": 1800,
+   "sectionNum": 43,
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 542805,
+     "start": "2026-11-03T02:55:00.000Z",
+     "stop": "2026-11-03T03:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542805,
+     "start": "2026-11-04T02:00:00.000Z",
+     "stop": "2026-11-04T02:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542805,
+     "start": "2026-11-06T02:55:00.000Z",
+     "stop": "2026-11-06T03:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542805,
+     "start": "2026-11-09T02:00:00.000Z",
+     "stop": "2026-11-09T02:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542805,
+     "start": "2026-11-09T02:55:00.000Z",
+     "stop": "2026-11-09T03:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542805,
+     "start": "2026-11-10T05:00:00.000Z",
+     "stop": "2026-11-10T05:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542805,
+     "start": "2026-11-11T02:55:00.000Z",
+     "stop": "2026-11-11T03:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542805,
+     "start": "2026-11-13T02:55:00.000Z",
+     "stop": "2026-11-13T03:45:00.000Z"
+    }
+   ],
+   "teacherID": 6556,
+   "termID": 3600
+  },
+  {
+   "courseCode": "C4CGEO11",
+   "dcid": 37964,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-23T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 540423,
+    "startDate": "2026-08-30T16:00:00.000Z"
+   },
+   "expression": "3(THB) 4(MA)",
+   "gradeBookType": 2,
+   "id": 37109,
+   "periodSort": 4,
+   "roomName": "N404",
+   "schoolCourseTitle": "11 Geography C4C 地理中方四门课",
+   "schoolNumber": 1800,
+   "sectionNum": 12,
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 540423,
+     "start": "2026-11-02T02:55:00.000Z",
+     "stop": "2026-11-02T03:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540423,
+     "start": "2026-11-12T02:00:00.000Z",
+     "stop": "2026-11-12T02:50:00.000Z"
+    }
+   ],
+   "teacherID": 5269,
+   "termID": 3600
+  },
+  {
+   "courseCode": "MATAA11HL",
+   "dcid": 38047,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-23T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 540428,
+    "startDate": "2026-08-30T16:00:00.000Z"
+   },
+   "expression": "1(WA,FA) 2(FB) 3(TA) 5(MB,THB) 6(MA,TB) 7(WB)",
+   "gradeBookType": 2,
+   "id": 37192,
+   "periodSort": 2,
+   "roomName": "N403",
+   "schoolCourseTitle": "11 Mathematics AA HL 数学 (高级水平)",
+   "schoolNumber": 1800,
+   "sectionNum": 24,
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 540428,
+     "start": "2026-11-02T05:55:00.000Z",
+     "stop": "2026-11-02T06:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540428,
+     "start": "2026-11-03T02:00:00.000Z",
+     "stop": "2026-11-03T02:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540428,
+     "start": "2026-11-04T00:00:00.000Z",
+     "stop": "2026-11-04T00:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540428,
+     "start": "2026-11-06T00:00:00.000Z",
+     "stop": "2026-11-06T00:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540428,
+     "start": "2026-11-09T05:00:00.000Z",
+     "stop": "2026-11-09T05:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540428,
+     "start": "2026-11-10T05:55:00.000Z",
+     "stop": "2026-11-10T06:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540428,
+     "start": "2026-11-11T06:50:00.000Z",
+     "stop": "2026-11-11T07:40:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540428,
+     "start": "2026-11-12T05:00:00.000Z",
+     "stop": "2026-11-12T05:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540428,
+     "start": "2026-11-13T00:55:00.000Z",
+     "stop": "2026-11-13T01:45:00.000Z"
+    }
+   ],
+   "teacherID": 5729,
+   "termID": 3600
+  },
+  {
+   "courseCode": "STUDY11",
+   "dcid": 39334,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-23T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 564068,
+    "startDate": "2026-09-09T16:00:00.000Z"
+   },
+   "expression": "2(THB)",
+   "gradeBookType": 2,
+   "id": 38479,
+   "periodSort": 3,
+   "roomName": null,
+   "schoolCourseTitle": "11 Study Period",
+   "schoolNumber": 1800,
+   "sectionNum": "2I",
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 564068,
+     "start": "2026-11-12T00:55:00.000Z",
+     "stop": "2026-11-12T01:45:00.000Z"
+    }
+   ],
+   "teacherID": 6643,
+   "termID": 3600
+  },
+  {
+   "courseCode": "C4CHIS11",
+   "dcid": 37978,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-23T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 540424,
+    "startDate": "2026-09-01T16:00:00.000Z"
+   },
+   "expression": "3(WB) 4(WA)",
+   "gradeBookType": 2,
+   "id": 37123,
+   "periodSort": 4,
+   "roomName": "N304",
+   "schoolCourseTitle": "11 History C4C 历史中方四门课",
+   "schoolNumber": 1800,
+   "sectionNum": 12,
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 540424,
+     "start": "2026-11-04T02:55:00.000Z",
+     "stop": "2026-11-04T03:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540424,
+     "start": "2026-11-11T02:00:00.000Z",
+     "stop": "2026-11-11T02:50:00.000Z"
+    }
+   ],
+   "teacherID": 6919,
+   "termID": 3600
+  },
+  {
+   "courseCode": "SJASS",
+   "dcid": 39590,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-23T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 568618,
+    "startDate": "2026-08-30T16:00:00.000Z"
+   },
+   "expression": "Tu2(MA,MB)",
+   "gradeBookType": 2,
+   "id": 38735,
+   "periodSort": 9,
+   "roomName": null,
+   "schoolCourseTitle": "Whole School Assembly",
+   "schoolNumber": 1800,
+   "sectionNum": 6951,
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 568618,
+     "start": "2026-11-02T04:35:00.000Z",
+     "stop": "2026-11-02T04:55:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 568618,
+     "start": "2026-11-09T04:35:00.000Z",
+     "stop": "2026-11-09T04:55:00.000Z"
+    }
+   ],
+   "teacherID": 6951,
+   "termID": 3600
+  },
+  {
+   "courseCode": "SJCCA",
+   "dcid": 39693,
+   "description": null,
+   "enrollments": {
+    "endDate": "2026-11-25T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 569739,
+    "startDate": "2026-09-06T16:00:00.000Z"
+   },
+   "expression": "CA1(MA,MB)",
+   "gradeBookType": 2,
+   "id": 38838,
+   "periodSort": 13,
+   "roomName": "CA Office",
+   "schoolCourseTitle": "High School Co-Curriculum Activity",
+   "schoolNumber": 1800,
+   "sectionNum": "1WEBMAIN",
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 569739,
+     "start": "2026-11-02T08:00:00.000Z",
+     "stop": "2026-11-02T09:00:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 569739,
+     "start": "2026-11-09T08:00:00.000Z",
+     "stop": "2026-11-09T09:00:00.000Z"
+    }
+   ],
+   "teacherID": 6703,
+   "termID": 3603
+  },
+  {
+   "courseCode": "11ENGALLSL",
+   "dcid": 38020,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-24T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 542699,
+    "startDate": "2026-08-30T16:00:00.000Z"
+   },
+   "expression": "2(MA) 3(FB) 5(THA-FA) 6(WA) 7(TA,TB,THB)",
+   "gradeBookType": 2,
+   "id": 37165,
+   "periodSort": 3,
+   "roomName": "N310",
+   "schoolCourseTitle": "11 English A Language and Literature SL",
+   "schoolNumber": 1800,
+   "sectionNum": 13,
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 542699,
+     "start": "2026-11-02T00:55:00.000Z",
+     "stop": "2026-11-02T01:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542699,
+     "start": "2026-11-03T06:50:00.000Z",
+     "stop": "2026-11-03T07:40:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542699,
+     "start": "2026-11-04T05:55:00.000Z",
+     "stop": "2026-11-04T06:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542699,
+     "start": "2026-11-05T05:00:00.000Z",
+     "stop": "2026-11-05T05:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542699,
+     "start": "2026-11-06T05:15:00.000Z",
+     "stop": "2026-11-06T06:05:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542699,
+     "start": "2026-11-10T06:50:00.000Z",
+     "stop": "2026-11-10T07:40:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542699,
+     "start": "2026-11-12T06:50:00.000Z",
+     "stop": "2026-11-12T07:40:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542699,
+     "start": "2026-11-13T02:00:00.000Z",
+     "stop": "2026-11-13T02:50:00.000Z"
+    }
+   ],
+   "teacherID": 6132,
+   "termID": 3600
+  },
+  {
+   "courseCode": "SSSH",
+   "dcid": 39281,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-23T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 561587,
+    "startDate": "2026-08-30T16:00:00.000Z"
+   },
+   "expression": "SH(MA-FB)",
+   "gradeBookType": 2,
+   "id": 38426,
+   "periodSort": 17,
+   "roomName": null,
+   "schoolCourseTitle": "HM 舍监/ Study Hall 晚自习",
+   "schoolNumber": 1800,
+   "sectionNum": "F",
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 561587,
+     "start": "2026-11-02T11:15:00.000Z",
+     "stop": "2026-11-02T13:00:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 561587,
+     "start": "2026-11-03T11:15:00.000Z",
+     "stop": "2026-11-03T13:00:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 561587,
+     "start": "2026-11-04T11:15:00.000Z",
+     "stop": "2026-11-04T13:00:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 561587,
+     "start": "2026-11-05T11:15:00.000Z",
+     "stop": "2026-11-05T13:00:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 561587,
+     "start": "2026-11-09T11:15:00.000Z",
+     "stop": "2026-11-09T13:00:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 561587,
+     "start": "2026-11-10T11:15:00.000Z",
+     "stop": "2026-11-10T13:00:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 561587,
+     "start": "2026-11-11T11:15:00.000Z",
+     "stop": "2026-11-11T13:00:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 561587,
+     "start": "2026-11-12T11:15:00.000Z",
+     "stop": "2026-11-12T13:00:00.000Z"
+    }
+   ],
+   "teacherID": 6125,
+   "termID": 3600
+  },
+  {
+   "courseCode": "BIO11HL",
+   "dcid": 37952,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-24T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 542807,
+    "startDate": "2026-09-01T16:00:00.000Z"
+   },
+   "expression": "2(MB-WB) 6(THA-FA,THB-FB) 7(WA-THA)",
+   "gradeBookType": 2,
+   "id": 37097,
+   "periodSort": 3,
+   "roomName": "S305",
+   "schoolCourseTitle": "11 Biology HL 生物 (高级水平)",
+   "schoolNumber": 1800,
+   "sectionNum": 65,
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 542807,
+     "start": "2026-11-04T06:50:00.000Z",
+     "stop": "2026-11-04T07:40:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542807,
+     "start": "2026-11-05T05:55:00.000Z",
+     "stop": "2026-11-05T06:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542807,
+     "start": "2026-11-05T06:50:00.000Z",
+     "stop": "2026-11-05T07:40:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542807,
+     "start": "2026-11-06T06:10:00.000Z",
+     "stop": "2026-11-06T07:00:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542807,
+     "start": "2026-11-09T00:55:00.000Z",
+     "stop": "2026-11-09T01:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542807,
+     "start": "2026-11-10T00:55:00.000Z",
+     "stop": "2026-11-10T01:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542807,
+     "start": "2026-11-11T00:55:00.000Z",
+     "stop": "2026-11-11T01:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542807,
+     "start": "2026-11-12T05:55:00.000Z",
+     "stop": "2026-11-12T06:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542807,
+     "start": "2026-11-13T06:10:00.000Z",
+     "stop": "2026-11-13T07:00:00.000Z"
+    }
+   ],
+   "teacherID": 2395,
+   "termID": 3600
+  },
+  {
+   "courseCode": "PE11",
+   "dcid": 40093,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-24T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 570975,
+    "startDate": "2026-09-14T16:00:00.000Z"
+   },
+   "expression": "1(MB) 5-6(TA)",
+   "gradeBookType": 2,
+   "id": 39238,
+   "periodSort": 2,
+   "roomName": "GYM",
+   "schoolCourseTitle": "11 PE 体育",
+   "schoolNumber": 1800,
+   "sectionNum": 12,
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 570975,
+     "start": "2026-11-03T05:00:00.000Z",
+     "stop": "2026-11-03T05:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 570975,
+     "start": "2026-11-03T05:55:00.000Z",
+     "stop": "2026-11-03T06:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 570975,
+     "start": "2026-11-09T00:00:00.000Z",
+     "stop": "2026-11-09T00:50:00.000Z"
+    }
+   ],
+   "teacherID": 7312,
+   "termID": 3600
+  },
+  {
+   "courseCode": "CMP11HL",
+   "dcid": 38005,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-23T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 540426,
+    "startDate": "2026-08-30T16:00:00.000Z"
+   },
+   "expression": "1(THA,TB,THB) 2(WA-THA) 5(FB) 6(WB) 7(MA,MB)",
+   "gradeBookType": 2,
+   "id": 37150,
+   "periodSort": 2,
+   "roomName": "FTL",
+   "schoolCourseTitle": "11 Computer Science HL 计算机科学 (高级水平)",
+   "schoolNumber": 1800,
+   "sectionNum": 51,
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 540426,
+     "start": "2026-11-02T06:50:00.000Z",
+     "stop": "2026-11-02T07:40:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540426,
+     "start": "2026-11-04T00:55:00.000Z",
+     "stop": "2026-11-04T01:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540426,
+     "start": "2026-11-05T00:00:00.000Z",
+     "stop": "2026-11-05T00:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540426,
+     "start": "2026-11-05T00:55:00.000Z",
+     "stop": "2026-11-05T01:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540426,
+     "start": "2026-11-09T06:50:00.000Z",
+     "stop": "2026-11-09T07:40:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540426,
+     "start": "2026-11-10T00:00:00.000Z",
+     "stop": "2026-11-10T00:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540426,
+     "start": "2026-11-11T05:55:00.000Z",
+     "stop": "2026-11-11T06:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540426,
+     "start": "2026-11-12T00:00:00.000Z",
+     "stop": "2026-11-12T00:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 540426,
+     "start": "2026-11-13T05:15:00.000Z",
+     "stop": "2026-11-13T06:05:00.000Z"
+    }
+   ],
+   "teacherID": 7256,
+   "termID": 3600
+  },
+  {
+   "courseCode": "SJEL",
+   "dcid": 39491,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-24T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 567013,
+    "startDate": "2026-09-03T16:00:00.000Z"
+   },
+   "expression": "Tu2-LT2(FA,FB)",
+   "gradeBookType": 2,
+   "id": 38636,
+   "periodSort": 9,
+   "roomName": null,
+   "schoolCourseTitle": "Extended Lunch",
+   "schoolNumber": 1800,
+   "sectionNum": 2,
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 567013,
+     "start": "2026-11-06T04:15:00.000Z",
+     "stop": "2026-11-06T05:10:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 567013,
+     "start": "2026-11-06T03:50:00.000Z",
+     "stop": "2026-11-06T05:10:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 567013,
+     "start": "2026-11-06T03:50:00.000Z",
+     "stop": "2026-11-06T04:15:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 567013,
+     "start": "2026-11-06T04:15:00.000Z",
+     "stop": "2026-11-06T04:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 567013,
+     "start": "2026-11-13T04:15:00.000Z",
+     "stop": "2026-11-13T05:10:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 567013,
+     "start": "2026-11-13T03:50:00.000Z",
+     "stop": "2026-11-13T05:10:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 567013,
+     "start": "2026-11-13T03:50:00.000Z",
+     "stop": "2026-11-13T04:15:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 567013,
+     "start": "2026-11-13T04:15:00.000Z",
+     "stop": "2026-11-13T04:50:00.000Z"
+    }
+   ],
+   "teacherID": 6643,
+   "termID": 3600
+  },
+  {
+   "courseCode": "GEO11SL",
+   "dcid": 38035,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-24T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 542806,
+    "startDate": "2026-08-30T16:00:00.000Z"
+   },
+   "expression": "1(TA,WB) 2(TA) 3(THA-FA,TB) 4(THB) 5(MA,WA)",
+   "gradeBookType": 2,
+   "id": 37180,
+   "periodSort": 2,
+   "roomName": "S203",
+   "schoolCourseTitle": "11 Geography SL 地理（标准水平）",
+   "schoolNumber": 1800,
+   "sectionNum": 31,
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 542806,
+     "start": "2026-11-02T05:00:00.000Z",
+     "stop": "2026-11-02T05:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542806,
+     "start": "2026-11-03T00:00:00.000Z",
+     "stop": "2026-11-03T00:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542806,
+     "start": "2026-11-03T00:55:00.000Z",
+     "stop": "2026-11-03T01:45:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542806,
+     "start": "2026-11-04T05:00:00.000Z",
+     "stop": "2026-11-04T05:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542806,
+     "start": "2026-11-05T02:00:00.000Z",
+     "stop": "2026-11-05T02:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542806,
+     "start": "2026-11-06T02:00:00.000Z",
+     "stop": "2026-11-06T02:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542806,
+     "start": "2026-11-10T02:00:00.000Z",
+     "stop": "2026-11-10T02:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542806,
+     "start": "2026-11-11T00:00:00.000Z",
+     "stop": "2026-11-11T00:50:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 542806,
+     "start": "2026-11-12T02:55:00.000Z",
+     "stop": "2026-11-12T03:45:00.000Z"
+    }
+   ],
+   "teacherID": 2398,
+   "termID": 3600
+  },
+  {
+   "courseCode": "Tutor Time",
+   "dcid": 39266,
+   "description": null,
+   "enrollments": {
+    "endDate": "2027-06-23T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 560975,
+    "startDate": "2026-08-30T16:00:00.000Z"
+   },
+   "expression": "Tu1(TA-THA,TB-THB)",
+   "gradeBookType": 2,
+   "id": 38411,
+   "periodSort": 8,
+   "roomName": "S402",
+   "schoolCourseTitle": "Tutor Time",
+   "schoolNumber": 1800,
+   "sectionNum": 6951,
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 560975,
+     "start": "2026-11-03T03:50:00.000Z",
+     "stop": "2026-11-03T04:10:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 560975,
+     "start": "2026-11-04T03:50:00.000Z",
+     "stop": "2026-11-04T04:10:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 560975,
+     "start": "2026-11-05T03:50:00.000Z",
+     "stop": "2026-11-05T04:10:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 560975,
+     "start": "2026-11-10T03:50:00.000Z",
+     "stop": "2026-11-10T04:10:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 560975,
+     "start": "2026-11-11T03:50:00.000Z",
+     "stop": "2026-11-11T04:10:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 560975,
+     "start": "2026-11-12T03:50:00.000Z",
+     "stop": "2026-11-12T04:10:00.000Z"
+    }
+   ],
+   "teacherID": 6951,
+   "termID": 3600
+  },
+  {
+   "courseCode": "SJCCA",
+   "dcid": 39698,
+   "description": null,
+   "enrollments": {
+    "endDate": "2026-11-25T16:00:00.000Z",
+    "enrollStatus": 0,
+    "id": 569738,
+    "startDate": "2026-09-07T16:00:00.000Z"
+   },
+   "expression": "CA1(TA,TB)",
+   "gradeBookType": 2,
+   "id": 38843,
+   "periodSort": 13,
+   "roomName": "N210",
+   "schoolCourseTitle": "High School Co-Curriculum Activity",
+   "schoolNumber": 1800,
+   "sectionNum": "1POMELO",
+   "startStopDates": [
+    {
+     "sectionEnrollmentId": 569738,
+     "start": "2026-11-03T08:00:00.000Z",
+     "stop": "2026-11-03T09:00:00.000Z"
+    },
+    {
+     "sectionEnrollmentId": 569738,
+     "start": "2026-11-10T08:00:00.000Z",
+     "stop": "2026-11-10T09:00:00.000Z"
+    }
+   ],
+   "teacherID": 2602,
+   "termID": 3603
+  }
+ ],
+ "teachers": [
+  {
+   "id": 2395,
+   "firstName": "Avery",
+   "lastName": "Morgan",
+   "email": "a.morgan@school.example",
+   "schoolPhone": null
+  },
+  {
+   "id": 2398,
+   "firstName": "Jia",
+   "lastName": "Lin",
+   "email": "j.lin@school.example",
+   "schoolPhone": null
+  },
+  {
+   "id": 2602,
+   "firstName": "Tunde",
+   "lastName": "Okafor",
+   "email": "t.okafor@school.example",
+   "schoolPhone": null
+  },
+  {
+   "id": 3705,
+   "firstName": "Ida",
+   "lastName": "Svensson",
+   "email": "i.svensson@school.example",
+   "schoolPhone": null
+  },
+  {
+   "id": 5269,
+   "firstName": "Ren",
+   "lastName": "Tanaka",
+   "email": "r.tanaka@school.example",
+   "schoolPhone": null
+  },
+  {
+   "id": 5729,
+   "firstName": "Lina",
+   "lastName": "Haddad",
+   "email": "l.haddad@school.example",
+   "schoolPhone": null
+  },
+  {
+   "id": 6125,
+   "firstName": "Piotr",
+   "lastName": "Kowalski",
+   "email": "p.kowalski@school.example",
+   "schoolPhone": null
+  },
+  {
+   "id": 6130,
+   "firstName": "Sofia",
+   "lastName": "Reyes",
+   "email": "s.reyes@school.example",
+   "schoolPhone": null
+  },
+  {
+   "id": 6132,
+   "firstName": "Ming",
+   "lastName": "Zhou",
+   "email": "m.zhou@school.example",
+   "schoolPhone": null
+  },
+  {
+   "id": 6506,
+   "firstName": "Cara",
+   "lastName": "Brennan",
+   "email": "c.brennan@school.example",
+   "schoolPhone": null
+  },
+  {
+   "id": 6556,
+   "firstName": "Dev",
+   "lastName": "Patel",
+   "email": "d.patel@school.example",
+   "schoolPhone": null
+  },
+  {
+   "id": 6643,
+   "firstName": "Elise",
+   "lastName": "Moreau",
+   "email": "e.moreau@school.example",
+   "schoolPhone": null
+  },
+  {
+   "id": 6703,
+   "firstName": "Yui",
+   "lastName": "Nakamura",
+   "email": "y.nakamura@school.example",
+   "schoolPhone": null
+  },
+  {
+   "id": 6919,
+   "firstName": "Jonas",
+   "lastName": "Fischer",
+   "email": "j.fischer@school.example",
+   "schoolPhone": null
+  },
+  {
+   "id": 6951,
+   "firstName": "Lei",
+   "lastName": "Wang",
+   "email": "l.wang@school.example",
+   "schoolPhone": null
+  },
+  {
+   "id": 7256,
+   "firstName": "Grace",
+   "lastName": "Oduya",
+   "email": "g.oduya@school.example",
+   "schoolPhone": null
+  },
+  {
+   "id": 7312,
+   "firstName": "Marco",
+   "lastName": "Castillo",
+   "email": "m.castillo@school.example",
+   "schoolPhone": null
+  }
+ ],
+ "terms": [
+  {
+   "abbrev": "26-27",
+   "endDate": "2027-06-23T16:00:00.000Z",
+   "id": 3600,
+   "parentTermId": 0,
+   "schoolNumber": 1800,
+   "startDate": "2026-08-30T16:00:00.000Z",
+   "suppressed": false,
+   "title": "2026-2027"
+  },
+  {
+   "abbrev": "S1",
+   "endDate": "2027-01-28T16:00:00.000Z",
+   "id": 3601,
+   "parentTermId": 3600,
+   "schoolNumber": 1800,
+   "startDate": "2026-08-30T16:00:00.000Z",
+   "suppressed": false,
+   "title": "Semester 1"
+  },
+  {
+   "abbrev": "T1",
+   "endDate": "2026-11-25T16:00:00.000Z",
+   "id": 3603,
+   "parentTermId": 3600,
+   "schoolNumber": 1800,
+   "startDate": "2026-09-06T16:00:00.000Z",
+   "suppressed": false,
+   "title": "Trimester 1"
+  },
+  {
+   "abbrev": "T2",
+   "endDate": "2027-03-10T16:00:00.000Z",
+   "id": 3604,
+   "parentTermId": 3600,
+   "schoolNumber": 1800,
+   "startDate": "2026-12-06T16:00:00.000Z",
+   "suppressed": false,
+   "title": "Trimester 2"
+  },
+  {
+   "abbrev": "S2",
+   "endDate": "2027-06-23T16:00:00.000Z",
+   "id": 3602,
+   "parentTermId": 3600,
+   "schoolNumber": 1800,
+   "startDate": "2027-02-15T16:00:00.000Z",
+   "suppressed": false,
+   "title": "Semester 2"
+  },
+  {
+   "abbrev": "T3",
+   "endDate": "2027-06-22T16:00:00.000Z",
+   "id": 3605,
+   "parentTermId": 3600,
+   "schoolNumber": 1800,
+   "startDate": "2027-04-04T16:00:00.000Z",
+   "suppressed": false,
+   "title": "Trimester 3"
+  }
+ ],
+ "reportingTerms": [
+  {
+   "abbreviation": "P2",
+   "endDate": "2026-10-22T16:00:00.000Z",
+   "id": 2362,
+   "schoolid": 1800,
+   "sendingGrades": true,
+   "sortOrder": 1,
+   "startDate": "2026-10-04T16:00:00.000Z",
+   "suppressGrades": false,
+   "suppressPercents": true,
+   "termid": 3600,
+   "title": "P2",
+   "yearid": 2027
+  },
+  {
+   "abbreviation": "P1",
+   "endDate": "2027-06-17T16:00:00.000Z",
+   "id": 2365,
+   "schoolid": 1800,
+   "sendingGrades": false,
+   "sortOrder": 1,
+   "startDate": "2027-06-12T16:00:00.000Z",
+   "suppressGrades": false,
+   "suppressPercents": true,
+   "termid": 3600,
+   "title": "P1",
+   "yearid": 2027
+  },
+  {
+   "abbreviation": "M1",
+   "endDate": "2026-11-05T16:00:00.000Z",
+   "id": 2356,
+   "schoolid": 1800,
+   "sendingGrades": false,
+   "sortOrder": 1,
+   "startDate": "2026-08-30T16:00:00.000Z",
+   "suppressGrades": false,
+   "suppressPercents": true,
+   "termid": 3600,
+   "title": "M1",
+   "yearid": 2027
+  },
+  {
+   "abbreviation": "S1",
+   "endDate": "2027-01-21T16:00:00.000Z",
+   "id": 2357,
+   "schoolid": 1800,
+   "sendingGrades": false,
+   "sortOrder": 1,
+   "startDate": "2026-11-08T16:00:00.000Z",
+   "suppressGrades": false,
+   "suppressPercents": true,
+   "termid": 3600,
+   "title": "S1",
+   "yearid": 2027
+  },
+  {
+   "abbreviation": "M2",
+   "endDate": "2027-04-08T16:00:00.000Z",
+   "id": 2358,
+   "schoolid": 1800,
+   "sendingGrades": false,
+   "sortOrder": 1,
+   "startDate": "2027-02-15T16:00:00.000Z",
+   "suppressGrades": false,
+   "suppressPercents": true,
+   "termid": 3600,
+   "title": "M2",
+   "yearid": 2027
+  },
+  {
+   "abbreviation": "Y2",
+   "endDate": "2027-04-15T16:00:00.000Z",
+   "id": 2363,
+   "schoolid": 1800,
+   "sendingGrades": false,
+   "sortOrder": 1,
+   "startDate": "2027-04-09T16:00:00.000Z",
+   "suppressGrades": false,
+   "suppressPercents": true,
+   "termid": 3600,
+   "title": "Y2",
+   "yearid": 2027
+  },
+  {
+   "abbreviation": "Y1",
+   "endDate": "2027-06-10T16:00:00.000Z",
+   "id": 2364,
+   "schoolid": 1800,
+   "sendingGrades": false,
+   "sortOrder": 1,
+   "startDate": "2027-04-16T16:00:00.000Z",
+   "suppressGrades": false,
+   "suppressPercents": true,
+   "termid": 3600,
+   "title": "Y1",
+   "yearid": 2027
+  }
+ ],
+ "periods": [
+  {
+   "abbreviation": "BF",
+   "id": 2358,
+   "name": "BF",
+   "periodNumber": 8,
+   "schoolid": 1800,
+   "sortOrder": 1,
+   "yearid": 2027
+  },
+  {
+   "abbreviation": 1,
+   "id": 2351,
+   "name": 1,
+   "periodNumber": 1,
+   "schoolid": 1800,
+   "sortOrder": 2,
+   "yearid": 2027
+  },
+  {
+   "abbreviation": 2,
+   "id": 2352,
+   "name": 2,
+   "periodNumber": 2,
+   "schoolid": 1800,
+   "sortOrder": 3,
+   "yearid": 2027
+  },
+  {
+   "abbreviation": 3,
+   "id": 2353,
+   "name": 3,
+   "periodNumber": 3,
+   "schoolid": 1800,
+   "sortOrder": 4,
+   "yearid": 2027
+  },
+  {
+   "abbreviation": 4,
+   "id": 2354,
+   "name": 4,
+   "periodNumber": 4,
+   "schoolid": 1800,
+   "sortOrder": 5,
+   "yearid": 2027
+  },
+  {
+   "abbreviation": "LT1",
+   "id": 2361,
+   "name": "LT1",
+   "periodNumber": 11,
+   "schoolid": 1800,
+   "sortOrder": 6,
+   "yearid": 2027
+  },
+  {
+   "abbreviation": "LT2",
+   "id": 2362,
+   "name": "LT2",
+   "periodNumber": 12,
+   "schoolid": 1800,
+   "sortOrder": 7,
+   "yearid": 2027
+  },
+  {
+   "abbreviation": "Tu1",
+   "id": 2360,
+   "name": "Tu1",
+   "periodNumber": 10,
+   "schoolid": 1800,
+   "sortOrder": 8,
+   "yearid": 2027
+  },
+  {
+   "abbreviation": "Tu2",
+   "id": 2359,
+   "name": "Tu2",
+   "periodNumber": 9,
+   "schoolid": 1800,
+   "sortOrder": 9,
+   "yearid": 2027
+  },
+  {
+   "abbreviation": 5,
+   "id": 2355,
+   "name": 5,
+   "periodNumber": 5,
+   "schoolid": 1800,
+   "sortOrder": 10,
+   "yearid": 2027
+  },
+  {
+   "abbreviation": 6,
+   "id": 2356,
+   "name": 6,
+   "periodNumber": 6,
+   "schoolid": 1800,
+   "sortOrder": 11,
+   "yearid": 2027
+  },
+  {
+   "abbreviation": 7,
+   "id": 2357,
+   "name": 7,
+   "periodNumber": 7,
+   "schoolid": 1800,
+   "sortOrder": 12,
+   "yearid": 2027
+  },
+  {
+   "abbreviation": "CA1",
+   "id": 2365,
+   "name": "CCA1",
+   "periodNumber": 15,
+   "schoolid": 1800,
+   "sortOrder": 13,
+   "yearid": 2027
+  },
+  {
+   "abbreviation": "CA2",
+   "id": 2366,
+   "name": "CCA2",
+   "periodNumber": 16,
+   "schoolid": 1800,
+   "sortOrder": 14,
+   "yearid": 2027
+  },
+  {
+   "abbreviation": "CA3",
+   "id": 2367,
+   "name": "CCA3",
+   "periodNumber": 17,
+   "schoolid": 1800,
+   "sortOrder": 15,
+   "yearid": 2027
+  },
+  {
+   "abbreviation": "CA4",
+   "id": 2368,
+   "name": "CCA4",
+   "periodNumber": 18,
+   "schoolid": 1800,
+   "sortOrder": 16,
+   "yearid": 2027
+  },
+  {
+   "abbreviation": "SH",
+   "id": 2363,
+   "name": "SH",
+   "periodNumber": 13,
+   "schoolid": 1800,
+   "sortOrder": 17,
+   "yearid": 2027
+  },
+  {
+   "abbreviation": "LO",
+   "id": 2364,
+   "name": "LO",
+   "periodNumber": 14,
+   "schoolid": 1800,
+   "sortOrder": 18,
+   "yearid": 2027
+  }
+ ],
+ "assignmentCategories": [
+  {
+   "abbreviation": null,
+   "description": "This category is for end of semester exams only at Synthetic High School.",
+   "gradeBookType": 2,
+   "id": 10263,
+   "name": "Exam -  HS"
+  },
+  {
+   "abbreviation": null,
+   "description": "This category does not count towards the semester grade",
+   "gradeBookType": 2,
+   "id": 11333,
+   "name": "Formative - HS"
+  },
+  {
+   "abbreviation": null,
+   "description": "This category does count towards the semester grade.",
+   "gradeBookType": 2,
+   "id": 815,
+   "name": "Summative - HS"
+  },
+  {
+   "abbreviation": null,
+   "description": "This category does count towards the semester grade.",
+   "gradeBookType": 2,
+   "id": 729,
+   "name": "Summative - HS"
+  },
+  {
+   "abbreviation": null,
+   "description": "This category does not count towards the semester grade",
+   "gradeBookType": 2,
+   "id": 9564,
+   "name": "Formative - HS"
+  },
+  {
+   "abbreviation": null,
+   "description": "This category is for end of semester exams only at Synthetic High School.",
+   "gradeBookType": 2,
+   "id": 9566,
+   "name": "Exam -  HS"
+  },
+  {
+   "abbreviation": null,
+   "description": "This category does count towards the semester grade.",
+   "gradeBookType": 2,
+   "id": 10262,
+   "name": "Summative - HS"
+  },
+  {
+   "abbreviation": null,
+   "description": "This category does count towards the semester grade.",
+   "gradeBookType": 2,
+   "id": 11334,
+   "name": "Summative - HS"
+  }
+ ],
+ "assignments": [
+  {
+   "id": 900001,
+   "assignmentid": 400001,
+   "sectionid": 37219,
+   "sectionDcid": 38074,
+   "categoryId": 9564,
+   "name": "Exit ticket 1",
+   "description": null,
+   "dueDate": "2026-10-20T16:00:00.000Z",
+   "pointspossible": 10,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900002,
+   "assignmentid": 400002,
+   "sectionid": 37219,
+   "sectionDcid": 38074,
+   "categoryId": 11334,
+   "name": "Investigation report 2",
+   "description": null,
+   "dueDate": "2026-09-07T16:00:00.000Z",
+   "pointspossible": 100,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900003,
+   "assignmentid": 400003,
+   "sectionid": 37219,
+   "sectionDcid": 38074,
+   "categoryId": 11334,
+   "name": "Investigation report 3",
+   "description": null,
+   "dueDate": "2026-10-23T16:00:00.000Z",
+   "pointspossible": 10,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900004,
+   "assignmentid": 400004,
+   "sectionid": 37219,
+   "sectionDcid": 38074,
+   "categoryId": 11334,
+   "name": "Unit test 4",
+   "description": null,
+   "dueDate": "2026-09-07T16:00:00.000Z",
+   "pointspossible": 100,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900005,
+   "assignmentid": 400005,
+   "sectionid": 37219,
+   "sectionDcid": 38074,
+   "categoryId": 9564,
+   "name": "Lab notebook 5",
+   "description": null,
+   "dueDate": "2026-11-12T16:00:00.000Z",
+   "pointspossible": 100,
+   "weight": 1,
+   "includeinfinalgrades": 0,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900006,
+   "assignmentid": 400006,
+   "sectionid": 37125,
+   "sectionDcid": 37980,
+   "categoryId": 9564,
+   "name": "Problem set 1",
+   "description": null,
+   "dueDate": "2026-11-10T16:00:00.000Z",
+   "pointspossible": 20,
+   "weight": 1,
+   "includeinfinalgrades": 0,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900007,
+   "assignmentid": 400007,
+   "sectionid": 37125,
+   "sectionDcid": 37980,
+   "categoryId": 11334,
+   "name": "Oral presentation 2",
+   "description": null,
+   "dueDate": "2026-09-15T16:00:00.000Z",
+   "pointspossible": 100,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900008,
+   "assignmentid": 400008,
+   "sectionid": 37125,
+   "sectionDcid": 37980,
+   "categoryId": 9564,
+   "name": "Draft feedback 3",
+   "description": null,
+   "dueDate": "2026-09-12T16:00:00.000Z",
+   "pointspossible": 100,
+   "weight": 1,
+   "includeinfinalgrades": 0,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900009,
+   "assignmentid": 400009,
+   "sectionid": 37125,
+   "sectionDcid": 37980,
+   "categoryId": 9564,
+   "name": "Lab notebook 4",
+   "description": null,
+   "dueDate": "2026-11-02T16:00:00.000Z",
+   "pointspossible": 100,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900010,
+   "assignmentid": 400010,
+   "sectionid": 37143,
+   "sectionDcid": 37998,
+   "categoryId": 9564,
+   "name": "Vocabulary quiz 1",
+   "description": null,
+   "dueDate": "2026-10-01T16:00:00.000Z",
+   "pointspossible": 10,
+   "weight": 1,
+   "includeinfinalgrades": 0,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900011,
+   "assignmentid": 400011,
+   "sectionid": 37143,
+   "sectionDcid": 37998,
+   "categoryId": 11334,
+   "name": "Data analysis 2",
+   "description": null,
+   "dueDate": "2026-09-09T16:00:00.000Z",
+   "pointspossible": 10,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900012,
+   "assignmentid": 400012,
+   "sectionid": 37143,
+   "sectionDcid": 37998,
+   "categoryId": 11334,
+   "name": "Data analysis 3",
+   "description": null,
+   "dueDate": "2026-09-05T16:00:00.000Z",
+   "pointspossible": 10,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900013,
+   "assignmentid": 400013,
+   "sectionid": 37143,
+   "sectionDcid": 37998,
+   "categoryId": 9566,
+   "name": "Mid-term exam 4",
+   "description": null,
+   "dueDate": "2026-10-14T16:00:00.000Z",
+   "pointspossible": 100,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900014,
+   "assignmentid": 400014,
+   "sectionid": 37109,
+   "sectionDcid": 37964,
+   "categoryId": 11334,
+   "name": "Oral presentation 1",
+   "description": null,
+   "dueDate": "2026-09-08T16:00:00.000Z",
+   "pointspossible": 10,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900015,
+   "assignmentid": 400015,
+   "sectionid": 37109,
+   "sectionDcid": 37964,
+   "categoryId": 9564,
+   "name": "Exit ticket 2",
+   "description": null,
+   "dueDate": "2026-10-19T16:00:00.000Z",
+   "pointspossible": 25,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900016,
+   "assignmentid": 400016,
+   "sectionid": 37109,
+   "sectionDcid": 37964,
+   "categoryId": 9564,
+   "name": "Draft feedback 3",
+   "description": null,
+   "dueDate": "2026-10-06T16:00:00.000Z",
+   "pointspossible": 20,
+   "weight": 1,
+   "includeinfinalgrades": 0,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900017,
+   "assignmentid": 400017,
+   "sectionid": 37109,
+   "sectionDcid": 37964,
+   "categoryId": 11334,
+   "name": "Investigation report 4",
+   "description": null,
+   "dueDate": "2026-11-09T16:00:00.000Z",
+   "pointspossible": 25,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900018,
+   "assignmentid": 400018,
+   "sectionid": 37109,
+   "sectionDcid": 37964,
+   "categoryId": 11334,
+   "name": "Essay 5",
+   "description": null,
+   "dueDate": "2026-11-09T16:00:00.000Z",
+   "pointspossible": 25,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900019,
+   "assignmentid": 400019,
+   "sectionid": 37192,
+   "sectionDcid": 38047,
+   "categoryId": 9566,
+   "name": "Mid-term exam 1",
+   "description": null,
+   "dueDate": "2026-10-18T16:00:00.000Z",
+   "pointspossible": 20,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900020,
+   "assignmentid": 400020,
+   "sectionid": 37192,
+   "sectionDcid": 38047,
+   "categoryId": 9564,
+   "name": "Exit ticket 2",
+   "description": null,
+   "dueDate": "2026-09-29T16:00:00.000Z",
+   "pointspossible": 20,
+   "weight": 1,
+   "includeinfinalgrades": 0,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900021,
+   "assignmentid": 400021,
+   "sectionid": 37192,
+   "sectionDcid": 38047,
+   "categoryId": 11334,
+   "name": "Data analysis 3",
+   "description": null,
+   "dueDate": "2026-10-17T16:00:00.000Z",
+   "pointspossible": 100,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900022,
+   "assignmentid": 400022,
+   "sectionid": 37192,
+   "sectionDcid": 38047,
+   "categoryId": 11334,
+   "name": "Data analysis 4",
+   "description": null,
+   "dueDate": "2026-09-06T16:00:00.000Z",
+   "pointspossible": 40,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900023,
+   "assignmentid": 400023,
+   "sectionid": 37192,
+   "sectionDcid": 38047,
+   "categoryId": 9564,
+   "name": "Reading check 5",
+   "description": null,
+   "dueDate": "2026-09-24T16:00:00.000Z",
+   "pointspossible": 10,
+   "weight": 1,
+   "includeinfinalgrades": 0,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900024,
+   "assignmentid": 400024,
+   "sectionid": 37123,
+   "sectionDcid": 37978,
+   "categoryId": 9564,
+   "name": "Reading check 1",
+   "description": null,
+   "dueDate": "2026-08-31T16:00:00.000Z",
+   "pointspossible": 100,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900025,
+   "assignmentid": 400025,
+   "sectionid": 37123,
+   "sectionDcid": 37978,
+   "categoryId": 11334,
+   "name": "Oral presentation 2",
+   "description": null,
+   "dueDate": "2026-10-18T16:00:00.000Z",
+   "pointspossible": 20,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900026,
+   "assignmentid": 400026,
+   "sectionid": 37123,
+   "sectionDcid": 37978,
+   "categoryId": 9564,
+   "name": "Lab notebook 3",
+   "description": null,
+   "dueDate": "2026-11-01T16:00:00.000Z",
+   "pointspossible": 40,
+   "weight": 1,
+   "includeinfinalgrades": 0,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900027,
+   "assignmentid": 400027,
+   "sectionid": 37165,
+   "sectionDcid": 38020,
+   "categoryId": 9566,
+   "name": "Mid-term exam 1",
+   "description": null,
+   "dueDate": "2026-10-13T16:00:00.000Z",
+   "pointspossible": 25,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900028,
+   "assignmentid": 400028,
+   "sectionid": 37165,
+   "sectionDcid": 38020,
+   "categoryId": 9564,
+   "name": "Vocabulary quiz 2",
+   "description": null,
+   "dueDate": "2026-11-08T16:00:00.000Z",
+   "pointspossible": 10,
+   "weight": 1,
+   "includeinfinalgrades": 0,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900029,
+   "assignmentid": 400029,
+   "sectionid": 37165,
+   "sectionDcid": 38020,
+   "categoryId": 9566,
+   "name": "Mid-term exam 3",
+   "description": null,
+   "dueDate": "2026-09-11T16:00:00.000Z",
+   "pointspossible": 25,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900030,
+   "assignmentid": 400030,
+   "sectionid": 37097,
+   "sectionDcid": 37952,
+   "categoryId": 9566,
+   "name": "Mid-term exam 1",
+   "description": null,
+   "dueDate": "2026-09-28T16:00:00.000Z",
+   "pointspossible": 100,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900031,
+   "assignmentid": 400031,
+   "sectionid": 37097,
+   "sectionDcid": 37952,
+   "categoryId": 9564,
+   "name": "Lab notebook 2",
+   "description": null,
+   "dueDate": "2026-09-25T16:00:00.000Z",
+   "pointspossible": 100,
+   "weight": 1,
+   "includeinfinalgrades": 0,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900032,
+   "assignmentid": 400032,
+   "sectionid": 37097,
+   "sectionDcid": 37952,
+   "categoryId": 9564,
+   "name": "Problem set 3",
+   "description": null,
+   "dueDate": "2026-10-05T16:00:00.000Z",
+   "pointspossible": 40,
+   "weight": 1,
+   "includeinfinalgrades": 0,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900033,
+   "assignmentid": 400033,
+   "sectionid": 37097,
+   "sectionDcid": 37952,
+   "categoryId": 9566,
+   "name": "Mid-term exam 4",
+   "description": null,
+   "dueDate": "2026-10-14T16:00:00.000Z",
+   "pointspossible": 25,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900034,
+   "assignmentid": 400034,
+   "sectionid": 37097,
+   "sectionDcid": 37952,
+   "categoryId": 11334,
+   "name": "Oral presentation 5",
+   "description": null,
+   "dueDate": "2026-08-31T16:00:00.000Z",
+   "pointspossible": 40,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900035,
+   "assignmentid": 400035,
+   "sectionid": 39238,
+   "sectionDcid": 40093,
+   "categoryId": 9566,
+   "name": "Mid-term exam 1",
+   "description": null,
+   "dueDate": "2026-09-25T16:00:00.000Z",
+   "pointspossible": 40,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900036,
+   "assignmentid": 400036,
+   "sectionid": 39238,
+   "sectionDcid": 40093,
+   "categoryId": 11334,
+   "name": "Investigation report 2",
+   "description": null,
+   "dueDate": "2026-10-21T16:00:00.000Z",
+   "pointspossible": 10,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900037,
+   "assignmentid": 400037,
+   "sectionid": 39238,
+   "sectionDcid": 40093,
+   "categoryId": 9566,
+   "name": "Mid-term exam 3",
+   "description": null,
+   "dueDate": "2026-09-18T16:00:00.000Z",
+   "pointspossible": 100,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900038,
+   "assignmentid": 400038,
+   "sectionid": 39238,
+   "sectionDcid": 40093,
+   "categoryId": 9564,
+   "name": "Draft feedback 4",
+   "description": null,
+   "dueDate": "2026-09-02T16:00:00.000Z",
+   "pointspossible": 10,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900039,
+   "assignmentid": 400039,
+   "sectionid": 39238,
+   "sectionDcid": 40093,
+   "categoryId": 9564,
+   "name": "Problem set 5",
+   "description": null,
+   "dueDate": "2026-09-27T16:00:00.000Z",
+   "pointspossible": 10,
+   "weight": 1,
+   "includeinfinalgrades": 0,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900040,
+   "assignmentid": 400040,
+   "sectionid": 39238,
+   "sectionDcid": 40093,
+   "categoryId": 11334,
+   "name": "Unit test 6",
+   "description": null,
+   "dueDate": "2026-10-23T16:00:00.000Z",
+   "pointspossible": 20,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900041,
+   "assignmentid": 400041,
+   "sectionid": 37150,
+   "sectionDcid": 38005,
+   "categoryId": 11334,
+   "name": "Investigation report 1",
+   "description": null,
+   "dueDate": "2026-09-16T16:00:00.000Z",
+   "pointspossible": 100,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900042,
+   "assignmentid": 400042,
+   "sectionid": 37150,
+   "sectionDcid": 38005,
+   "categoryId": 9564,
+   "name": "Reading check 2",
+   "description": null,
+   "dueDate": "2026-08-31T16:00:00.000Z",
+   "pointspossible": 20,
+   "weight": 1,
+   "includeinfinalgrades": 0,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900043,
+   "assignmentid": 400043,
+   "sectionid": 37150,
+   "sectionDcid": 38005,
+   "categoryId": 9564,
+   "name": "Reading check 3",
+   "description": null,
+   "dueDate": "2026-11-10T16:00:00.000Z",
+   "pointspossible": 10,
+   "weight": 1,
+   "includeinfinalgrades": 0,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900044,
+   "assignmentid": 400044,
+   "sectionid": 37150,
+   "sectionDcid": 38005,
+   "categoryId": 9564,
+   "name": "Lab notebook 4",
+   "description": null,
+   "dueDate": "2026-09-12T16:00:00.000Z",
+   "pointspossible": 100,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900045,
+   "assignmentid": 400045,
+   "sectionid": 37150,
+   "sectionDcid": 38005,
+   "categoryId": 11334,
+   "name": "Data analysis 5",
+   "description": null,
+   "dueDate": "2026-11-03T16:00:00.000Z",
+   "pointspossible": 100,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900046,
+   "assignmentid": 400046,
+   "sectionid": 37150,
+   "sectionDcid": 38005,
+   "categoryId": 11334,
+   "name": "Data analysis 6",
+   "description": null,
+   "dueDate": "2026-11-03T16:00:00.000Z",
+   "pointspossible": 20,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900047,
+   "assignmentid": 400047,
+   "sectionid": 37180,
+   "sectionDcid": 38035,
+   "categoryId": 11334,
+   "name": "Unit test 1",
+   "description": null,
+   "dueDate": "2026-09-17T16:00:00.000Z",
+   "pointspossible": 40,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900048,
+   "assignmentid": 400048,
+   "sectionid": 37180,
+   "sectionDcid": 38035,
+   "categoryId": 11334,
+   "name": "Oral presentation 2",
+   "description": null,
+   "dueDate": "2026-09-09T16:00:00.000Z",
+   "pointspossible": 20,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900049,
+   "assignmentid": 400049,
+   "sectionid": 37180,
+   "sectionDcid": 38035,
+   "categoryId": 9564,
+   "name": "Lab notebook 3",
+   "description": null,
+   "dueDate": "2026-10-02T16:00:00.000Z",
+   "pointspossible": 20,
+   "weight": 1,
+   "includeinfinalgrades": 0,
+   "publishscores": 1,
+   "type": 2
+  },
+  {
+   "id": 900050,
+   "assignmentid": 400050,
+   "sectionid": 37180,
+   "sectionDcid": 38035,
+   "categoryId": 9566,
+   "name": "Mid-term exam 4",
+   "description": null,
+   "dueDate": "2026-09-28T16:00:00.000Z",
+   "pointspossible": 20,
+   "weight": 1,
+   "includeinfinalgrades": 1,
+   "publishscores": 1,
+   "type": 2
+  }
+ ],
+ "assignmentScores": [
+  {
+   "id": 990001,
+   "assignmentId": 900001,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": true,
+   "letterGrade": null,
+   "percent": null,
+   "score": "--",
+   "scoretype": 0
+  },
+  {
+   "id": 990002,
+   "assignmentId": 900002,
+   "collected": true,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": true,
+   "missing": false,
+   "letterGrade": null,
+   "percent": null,
+   "score": "--",
+   "scoretype": 0
+  },
+  {
+   "id": 990003,
+   "assignmentId": 900003,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": true,
+   "letterGrade": null,
+   "percent": null,
+   "score": "--",
+   "scoretype": 0
+  },
+  {
+   "id": 990004,
+   "assignmentId": 900004,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 5,
+   "percent": 80.8,
+   "score": 80.8,
+   "scoretype": 0
+  },
+  {
+   "id": 990005,
+   "assignmentId": 900007,
+   "collected": false,
+   "comment": "Check your units.",
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 6,
+   "percent": 83.5,
+   "score": 83.5,
+   "scoretype": 0
+  },
+  {
+   "id": 990006,
+   "assignmentId": 900008,
+   "collected": true,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": true,
+   "missing": false,
+   "letterGrade": null,
+   "percent": null,
+   "score": "--",
+   "scoretype": 0
+  },
+  {
+   "id": 990007,
+   "assignmentId": 900009,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 7,
+   "percent": 96.0,
+   "score": 96.0,
+   "scoretype": 0
+  },
+  {
+   "id": 990008,
+   "assignmentId": 900010,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 4,
+   "percent": 65.9,
+   "score": 6.59,
+   "scoretype": 0
+  },
+  {
+   "id": 990009,
+   "assignmentId": 900011,
+   "collected": false,
+   "comment": "Revise section 2.",
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 6,
+   "percent": 87.4,
+   "score": 8.74,
+   "scoretype": 0
+  },
+  {
+   "id": 990010,
+   "assignmentId": 900012,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 7,
+   "percent": 93.5,
+   "score": 9.35,
+   "scoretype": 0
+  },
+  {
+   "id": 990011,
+   "assignmentId": 900013,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 4,
+   "percent": 71.7,
+   "score": 71.7,
+   "scoretype": 0
+  },
+  {
+   "id": 990012,
+   "assignmentId": 900014,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 7,
+   "percent": 99.6,
+   "score": 9.96,
+   "scoretype": 0
+  },
+  {
+   "id": 990013,
+   "assignmentId": 900015,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 5,
+   "percent": 79.8,
+   "score": 19.95,
+   "scoretype": 0
+  },
+  {
+   "id": 990014,
+   "assignmentId": 900016,
+   "collected": false,
+   "comment": "Revise section 2.",
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 7,
+   "percent": 93.3,
+   "score": 18.66,
+   "scoretype": 0
+  },
+  {
+   "id": 990015,
+   "assignmentId": 900019,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": true,
+   "letterGrade": null,
+   "percent": null,
+   "score": "--",
+   "scoretype": 0
+  },
+  {
+   "id": 990016,
+   "assignmentId": 900020,
+   "collected": false,
+   "comment": "Revise section 2.",
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 3,
+   "percent": 61.7,
+   "score": 12.34,
+   "scoretype": 0
+  },
+  {
+   "id": 990017,
+   "assignmentId": 900021,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 3,
+   "percent": 54.5,
+   "score": 54.5,
+   "scoretype": 0
+  },
+  {
+   "id": 990018,
+   "assignmentId": 900022,
+   "collected": false,
+   "comment": "Revise section 2.",
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 4,
+   "percent": 68.7,
+   "score": 27.48,
+   "scoretype": 0
+  },
+  {
+   "id": 990019,
+   "assignmentId": 900023,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": true,
+   "letterGrade": null,
+   "percent": null,
+   "score": "--",
+   "scoretype": 0
+  },
+  {
+   "id": 990020,
+   "assignmentId": 900024,
+   "collected": false,
+   "comment": "Check your units.",
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 5,
+   "percent": 79.9,
+   "score": 79.9,
+   "scoretype": 0
+  },
+  {
+   "id": 990021,
+   "assignmentId": 900025,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 5,
+   "percent": 79.3,
+   "score": 15.86,
+   "scoretype": 0
+  },
+  {
+   "id": 990022,
+   "assignmentId": 900026,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": true,
+   "letterGrade": null,
+   "percent": null,
+   "score": "--",
+   "scoretype": 0
+  },
+  {
+   "id": 990023,
+   "assignmentId": 900027,
+   "collected": false,
+   "comment": "Well structured.",
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 3,
+   "percent": 56.4,
+   "score": 14.1,
+   "scoretype": 0
+  },
+  {
+   "id": 990024,
+   "assignmentId": 900029,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 4,
+   "percent": 66.5,
+   "score": 16.62,
+   "scoretype": 0
+  },
+  {
+   "id": 990025,
+   "assignmentId": 900030,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 6,
+   "percent": 90.6,
+   "score": 90.6,
+   "scoretype": 0
+  },
+  {
+   "id": 990026,
+   "assignmentId": 900031,
+   "collected": true,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": true,
+   "missing": false,
+   "letterGrade": null,
+   "percent": null,
+   "score": "--",
+   "scoretype": 0
+  },
+  {
+   "id": 990027,
+   "assignmentId": 900032,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 4,
+   "percent": 65.9,
+   "score": 26.36,
+   "scoretype": 0
+  },
+  {
+   "id": 990028,
+   "assignmentId": 900033,
+   "collected": false,
+   "comment": "Check your units.",
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 3,
+   "percent": 59.8,
+   "score": 14.95,
+   "scoretype": 0
+  },
+  {
+   "id": 990029,
+   "assignmentId": 900034,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 3,
+   "percent": 52.4,
+   "score": 20.96,
+   "scoretype": 0
+  },
+  {
+   "id": 990030,
+   "assignmentId": 900035,
+   "collected": false,
+   "comment": "Revise section 2.",
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 5,
+   "percent": 81.1,
+   "score": 32.44,
+   "scoretype": 0
+  },
+  {
+   "id": 990031,
+   "assignmentId": 900036,
+   "collected": false,
+   "comment": "Revise section 2.",
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 3,
+   "percent": 54.6,
+   "score": 5.46,
+   "scoretype": 0
+  },
+  {
+   "id": 990032,
+   "assignmentId": 900037,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 4,
+   "percent": 66.2,
+   "score": 66.2,
+   "scoretype": 0
+  },
+  {
+   "id": 990033,
+   "assignmentId": 900038,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 7,
+   "percent": 96.5,
+   "score": 9.65,
+   "scoretype": 0
+  },
+  {
+   "id": 990034,
+   "assignmentId": 900039,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 6,
+   "percent": 87.7,
+   "score": 8.77,
+   "scoretype": 0
+  },
+  {
+   "id": 990035,
+   "assignmentId": 900040,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 4,
+   "percent": 66.4,
+   "score": 13.28,
+   "scoretype": 0
+  },
+  {
+   "id": 990036,
+   "assignmentId": 900041,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 2,
+   "percent": 49.0,
+   "score": 49.0,
+   "scoretype": 0
+  },
+  {
+   "id": 990037,
+   "assignmentId": 900042,
+   "collected": false,
+   "comment": "Revise section 2.",
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 3,
+   "percent": 54.3,
+   "score": 10.86,
+   "scoretype": 0
+  },
+  {
+   "id": 990038,
+   "assignmentId": 900044,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 7,
+   "percent": 95.4,
+   "score": 95.4,
+   "scoretype": 0
+  },
+  {
+   "id": 990039,
+   "assignmentId": 900045,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 4,
+   "percent": 62.4,
+   "score": 62.4,
+   "scoretype": 0
+  },
+  {
+   "id": 990040,
+   "assignmentId": 900046,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 7,
+   "percent": 97.0,
+   "score": 19.4,
+   "scoretype": 0
+  },
+  {
+   "id": 990041,
+   "assignmentId": 900047,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 4,
+   "percent": 64.4,
+   "score": 25.76,
+   "scoretype": 0
+  },
+  {
+   "id": 990042,
+   "assignmentId": 900048,
+   "collected": false,
+   "comment": "Well structured.",
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 7,
+   "percent": 94.6,
+   "score": 18.92,
+   "scoretype": 0
+  },
+  {
+   "id": 990043,
+   "assignmentId": 900049,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 4,
+   "percent": 68.7,
+   "score": 13.74,
+   "scoretype": 0
+  },
+  {
+   "id": 990044,
+   "assignmentId": 900050,
+   "collected": false,
+   "comment": null,
+   "exempt": false,
+   "incomplete": false,
+   "late": false,
+   "missing": false,
+   "letterGrade": 4,
+   "percent": 69.0,
+   "score": 13.8,
+   "scoretype": 0
+  }
+ ],
+ "finalGrades": [
+  {
+   "id": 700000,
+   "sectionid": 37219,
+   "reportingTermId": 2356,
+   "grade": "6",
+   "percent": 84,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700001,
+   "sectionid": 37219,
+   "reportingTermId": 2362,
+   "grade": "7",
+   "percent": 96,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700002,
+   "sectionid": 37125,
+   "reportingTermId": 2356,
+   "grade": "6",
+   "percent": 82,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700003,
+   "sectionid": 37125,
+   "reportingTermId": 2362,
+   "grade": "6",
+   "percent": 86,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700004,
+   "sectionid": 37143,
+   "reportingTermId": 2356,
+   "grade": "5",
+   "percent": 76,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700005,
+   "sectionid": 37143,
+   "reportingTermId": 2362,
+   "grade": "4",
+   "percent": 63,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700006,
+   "sectionid": 37109,
+   "reportingTermId": 2356,
+   "grade": "5",
+   "percent": 75,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700007,
+   "sectionid": 37109,
+   "reportingTermId": 2362,
+   "grade": "5",
+   "percent": 77,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700008,
+   "sectionid": 37192,
+   "reportingTermId": 2356,
+   "grade": "6",
+   "percent": 86,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700009,
+   "sectionid": 37192,
+   "reportingTermId": 2362,
+   "grade": "7",
+   "percent": 91,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700010,
+   "sectionid": 37123,
+   "reportingTermId": 2356,
+   "grade": "6",
+   "percent": 82,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700011,
+   "sectionid": 37123,
+   "reportingTermId": 2362,
+   "grade": "7",
+   "percent": 93,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700012,
+   "sectionid": 37165,
+   "reportingTermId": 2356,
+   "grade": "6",
+   "percent": 82,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700013,
+   "sectionid": 37165,
+   "reportingTermId": 2362,
+   "grade": "6",
+   "percent": 84,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700014,
+   "sectionid": 37097,
+   "reportingTermId": 2356,
+   "grade": "6",
+   "percent": 88,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700015,
+   "sectionid": 37097,
+   "reportingTermId": 2362,
+   "grade": "5",
+   "percent": 79,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700016,
+   "sectionid": 39238,
+   "reportingTermId": 2356,
+   "grade": "4",
+   "percent": 69,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700017,
+   "sectionid": 39238,
+   "reportingTermId": 2362,
+   "grade": "6",
+   "percent": 85,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700018,
+   "sectionid": 37150,
+   "reportingTermId": 2356,
+   "grade": "6",
+   "percent": 86,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700019,
+   "sectionid": 37150,
+   "reportingTermId": 2362,
+   "grade": "5",
+   "percent": 77,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700020,
+   "sectionid": 37180,
+   "reportingTermId": 2356,
+   "grade": "5",
+   "percent": 78,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  },
+  {
+   "id": 700021,
+   "sectionid": 37180,
+   "reportingTermId": 2362,
+   "grade": "6",
+   "percent": 82,
+   "commentValue": null,
+   "dateStored": "2026-11-05T16:00:00.000Z",
+   "storeType": 1
+  }
+ ],
+ "attendance": [
+  {
+   "adaValueCode": 0,
+   "adaValueTime": 0,
+   "admValue": 0,
+   "attCodeid": 2612,
+   "attComment": "School trip",
+   "attDate": "2026-09-02T16:00:00.000Z",
+   "attFlags": 0,
+   "attInterval": 0,
+   "attModeCode": "ATT_ModeMeeting",
+   "ccid": 561587,
+   "id": 3451560,
+   "periodid": 2363,
+   "schoolid": 1800,
+   "studentid": 1001,
+   "totalMinutes": 105,
+   "transactionType": null,
+   "yearid": 2027
+  },
+  {
+   "adaValueCode": 0,
+   "adaValueTime": 0,
+   "admValue": 0,
+   "attCodeid": 2606,
+   "attComment": null,
+   "attDate": "2026-09-22T16:00:00.000Z",
+   "attFlags": 0,
+   "attInterval": 0,
+   "attModeCode": "ATT_ModeMeeting",
+   "ccid": 561587,
+   "id": 3497763,
+   "periodid": 2363,
+   "schoolid": 1800,
+   "studentid": 1001,
+   "totalMinutes": 105,
+   "transactionType": null,
+   "yearid": 2027
+  },
+  {
+   "adaValueCode": 0,
+   "adaValueTime": 0,
+   "admValue": 0,
+   "attCodeid": 2606,
+   "attComment": null,
+   "attDate": "2026-10-11T16:00:00.000Z",
+   "attFlags": 0,
+   "attInterval": 0,
+   "attModeCode": "ATT_ModeMeeting",
+   "ccid": 542807,
+   "id": 3523045,
+   "periodid": 2352,
+   "schoolid": 1800,
+   "studentid": 1001,
+   "totalMinutes": 50,
+   "transactionType": null,
+   "yearid": 2027
+  },
+  {
+   "adaValueCode": 0,
+   "adaValueTime": 0,
+   "admValue": 0,
+   "attCodeid": 2606,
+   "attComment": "Counselor meeting",
+   "attDate": "2026-10-27T16:00:00.000Z",
+   "attFlags": 0,
+   "attInterval": 0,
+   "attModeCode": "ATT_ModeMeeting",
+   "ccid": 561587,
+   "id": 3564997,
+   "periodid": 2363,
+   "schoolid": 1800,
+   "studentid": 1001,
+   "totalMinutes": 105,
+   "transactionType": null,
+   "yearid": 2027
+  },
+  {
+   "adaValueCode": 0,
+   "adaValueTime": 0,
+   "admValue": 0,
+   "attCodeid": 2606,
+   "attComment": null,
+   "attDate": "2026-10-19T16:00:00.000Z",
+   "attFlags": 0,
+   "attInterval": 0,
+   "attModeCode": "ATT_ModeMeeting",
+   "ccid": 542806,
+   "id": 3539703,
+   "periodid": 2351,
+   "schoolid": 1800,
+   "studentid": 1001,
+   "totalMinutes": 50,
+   "transactionType": null,
+   "yearid": 2027
+  },
+  {
+   "adaValueCode": 0,
+   "adaValueTime": 0,
+   "admValue": 0,
+   "attCodeid": 2611,
+   "attComment": "School trip",
+   "attDate": "2026-10-13T16:00:00.000Z",
+   "attFlags": 0,
+   "attInterval": 0,
+   "attModeCode": "ATT_ModeMeeting",
+   "ccid": 542807,
+   "id": 3534663,
+   "periodid": 2352,
+   "schoolid": 1800,
+   "studentid": 1001,
+   "totalMinutes": 50,
+   "transactionType": null,
+   "yearid": 2027
+  },
+  {
+   "adaValueCode": 0,
+   "adaValueTime": 0,
+   "admValue": 0,
+   "attCodeid": 2606,
+   "attComment": null,
+   "attDate": "2026-10-26T16:00:00.000Z",
+   "attFlags": 0,
+   "attInterval": 0,
+   "attModeCode": "ATT_ModeMeeting",
+   "ccid": 562971,
+   "id": 3528522,
+   "periodid": 2362,
+   "schoolid": 1800,
+   "studentid": 1001,
+   "totalMinutes": 40,
+   "transactionType": null,
+   "yearid": 2027
+  },
+  {
+   "adaValueCode": 0,
+   "adaValueTime": 0,
+   "admValue": 0,
+   "attCodeid": 2606,
+   "attComment": null,
+   "attDate": "2026-10-26T16:00:00.000Z",
+   "attFlags": 0,
+   "attInterval": 0,
+   "attModeCode": "ATT_ModeMeeting",
+   "ccid": 560975,
+   "id": 3528521,
+   "periodid": 2360,
+   "schoolid": 1800,
+   "studentid": 1001,
+   "totalMinutes": 20,
+   "transactionType": null,
+   "yearid": 2027
+  },
+  {
+   "adaValueCode": 0,
+   "adaValueTime": 0,
+   "admValue": 0,
+   "attCodeid": 2606,
+   "attComment": "School trip",
+   "attDate": "2026-10-19T16:00:00.000Z",
+   "attFlags": 0,
+   "attInterval": 0,
+   "attModeCode": "ATT_ModeMeeting",
+   "ccid": 561587,
+   "id": 3545569,
+   "periodid": 2363,
+   "schoolid": 1800,
+   "studentid": 1001,
+   "totalMinutes": 105,
+   "transactionType": null,
+   "yearid": 2027
+  },
+  {
+   "adaValueCode": 0,
+   "adaValueTime": 0,
+   "admValue": 0,
+   "attCodeid": 2606,
+   "attComment": null,
+   "attDate": "2026-10-15T16:00:00.000Z",
+   "attFlags": 0,
+   "attInterval": 0,
+   "attModeCode": "ATT_ModeMeeting",
+   "ccid": 540428,
+   "id": 3538590,
+   "periodid": 2352,
+   "schoolid": 1800,
+   "studentid": 1001,
+   "totalMinutes": 50,
+   "transactionType": null,
+   "yearid": 2027
+  },
+  {
+   "adaValueCode": 0,
+   "adaValueTime": 0,
+   "admValue": 0,
+   "attCodeid": 2606,
+   "attComment": null,
+   "attDate": "2026-10-12T16:00:00.000Z",
+   "attFlags": 0,
+   "attInterval": 0,
+   "attModeCode": "ATT_ModeMeeting",
+   "ccid": 542807,
+   "id": 3527336,
+   "periodid": 2352,
+   "schoolid": 1800,
+   "studentid": 1001,
+   "totalMinutes": 50,
+   "transactionType": null,
+   "yearid": 2027
+  },
+  {
+   "adaValueCode": 0,
+   "adaValueTime": 0,
+   "admValue": 0,
+   "attCodeid": 2611,
+   "attComment": null,
+   "attDate": "2026-10-14T16:00:00.000Z",
+   "attFlags": 0,
+   "attInterval": 0,
+   "attModeCode": "ATT_ModeMeeting",
+   "ccid": 540423,
+   "id": 3534664,
+   "periodid": 2353,
+   "schoolid": 1800,
+   "studentid": 1001,
+   "totalMinutes": 50,
+   "transactionType": null,
+   "yearid": 2027
+  },
+  {
+   "adaValueCode": 0,
+   "adaValueTime": 0,
+   "admValue": 0,
+   "attCodeid": 2606,
+   "attComment": "School trip",
+   "attDate": "2026-10-11T16:00:00.000Z",
+   "attFlags": 0,
+   "attInterval": 0,
+   "attModeCode": "ATT_ModeMeeting",
+   "ccid": 542805,
+   "id": 3523046,
+   "periodid": 2353,
+   "schoolid": 1800,
+   "studentid": 1001,
+   "totalMinutes": 50,
+   "transactionType": null,
+   "yearid": 2027
+  },
+  {
+   "adaValueCode": 0,
+   "adaValueTime": 0,
+   "admValue": 0,
+   "attCodeid": 2602,
+   "attComment": null,
+   "attDate": "2026-09-14T16:00:00.000Z",
+   "attFlags": 0,
+   "attInterval": 0,
+   "attModeCode": "ATT_ModeMeeting",
+   "ccid": 569738,
+   "id": 3476665,
+   "periodid": 2365,
+   "schoolid": 1800,
+   "studentid": 1001,
+   "totalMinutes": 60,
+   "transactionType": null,
+   "yearid": 2027
+  },
+  {
+   "adaValueCode": 0,
+   "adaValueTime": 0,
+   "admValue": 0,
+   "attCodeid": 2606,
+   "attComment": "Counselor meeting",
+   "attDate": "2026-10-15T16:00:00.000Z",
+   "attFlags": 0,
+   "attInterval": 0,
+   "attModeCode": "ATT_ModeMeeting",
+   "ccid": 542699,
+   "id": 3538591,
+   "periodid": 2353,
+   "schoolid": 1800,
+   "studentid": 1001,
+   "totalMinutes": 50,
+   "transactionType": null,
+   "yearid": 2027
+  },
+  {
+   "adaValueCode": 0,
+   "adaValueTime": 0,
+   "admValue": 0,
+   "attCodeid": 2606,
+   "attComment": null,
+   "attDate": "2026-10-12T16:00:00.000Z",
+   "attFlags": 0,
+   "attInterval": 0,
+   "attModeCode": "ATT_ModeMeeting",
+   "ccid": 540426,
+   "id": 3527335,
+   "periodid": 2351,
+   "schoolid": 1800,
+   "studentid": 1001,
+   "totalMinutes": 50,
+   "transactionType": null,
+   "yearid": 2027
+  }
+ ],
+ "attendanceCodes": [
+  {
+   "attCode": null,
+   "codeType": 1,
+   "description": "Present",
+   "id": 2611,
+   "schoolid": 1800,
+   "sortorder": 1,
+   "yearid": 2027
+  },
+  {
+   "attCode": "A",
+   "codeType": 2,
+   "description": "Absent",
+   "id": 2601,
+   "schoolid": 1800,
+   "sortorder": 2,
+   "yearid": 2027
+  },
+  {
+   "attCode": "TA",
+   "codeType": 1,
+   "description": "Tardy",
+   "id": 2602,
+   "schoolid": 1800,
+   "sortorder": 3,
+   "yearid": 2027
+  },
+  {
+   "attCode": "AE",
+   "codeType": 2,
+   "description": "Absent Excused",
+   "id": 2603,
+   "schoolid": 1800,
+   "sortorder": 4,
+   "yearid": 2027
+  },
+  {
+   "attCode": "ASS",
+   "codeType": 1,
+   "description": "Student Service-Meeting w. counselor",
+   "id": 2612,
+   "schoolid": 1800,
+   "sortorder": 4,
+   "yearid": 2027
+  },
+  {
+   "attCode": "AU",
+   "codeType": 2,
+   "description": "Absent Unexcused",
+   "id": 2604,
+   "schoolid": 1800,
+   "sortorder": 5,
+   "yearid": 2027
+  },
+  {
+   "attCode": "ASL",
+   "codeType": 2,
+   "description": "Absent for Sick Leave with Doctor's Note",
+   "id": 2605,
+   "schoolid": 1800,
+   "sortorder": 6,
+   "yearid": 2027
+  },
+  {
+   "attCode": "ASL-NoCERT",
+   "codeType": 2,
+   "description": "Absent for Sick Leave without Doctor's Note",
+   "id": 2608,
+   "schoolid": 1800,
+   "sortorder": 7,
+   "yearid": 2027
+  },
+  {
+   "attCode": "ASE",
+   "codeType": 1,
+   "description": "Absent for School Event",
+   "id": 2606,
+   "schoolid": 1800,
+   "sortorder": 8,
+   "yearid": 2027
+  },
+  {
+   "attCode": "EWD",
+   "codeType": 1,
+   "description": "Early Withdrawl",
+   "id": 2607,
+   "schoolid": 1800,
+   "sortorder": 9,
+   "yearid": 2027
+  },
+  {
+   "attCode": "Suspension",
+   "codeType": 2,
+   "description": "Suspension",
+   "id": 2609,
+   "schoolid": 1800,
+   "sortorder": 10,
+   "yearid": 2027
+  },
+  {
+   "attCode": "RL",
+   "codeType": 1,
+   "description": "Remote Learning",
+   "id": 2610,
+   "schoolid": 1800,
+   "sortorder": 11,
+   "yearid": 2027
+  }
+ ],
+ "notInSessionDays": [
+  {
+   "calType": "Holiday",
+   "calendarDay": "2026-09-24T16:00:00.000Z",
+   "description": null,
+   "id": 21346,
+   "schoolNumber": 1800
+  },
+  {
+   "calType": "Holiday",
+   "calendarDay": "2026-09-25T16:00:00.000Z",
+   "description": null,
+   "id": 21347,
+   "schoolNumber": 1800
+  },
+  {
+   "calType": "Holiday",
+   "calendarDay": "2026-09-26T16:00:00.000Z",
+   "description": null,
+   "id": 21348,
+   "schoolNumber": 1800
+  },
+  {
+   "calType": "Holiday",
+   "calendarDay": "2026-09-27T16:00:00.000Z",
+   "description": null,
+   "id": 21349,
+   "schoolNumber": 1800
+  },
+  {
+   "calType": "Holiday",
+   "calendarDay": "2026-09-28T16:00:00.000Z",
+   "description": null,
+   "id": 21350,
+   "schoolNumber": 1800
+  },
+  {
+   "calType": "Holiday",
+   "calendarDay": "2026-09-29T16:00:00.000Z",
+   "description": null,
+   "id": 21351,
+   "schoolNumber": 1800
+  },
+  {
+   "calType": "Teacher in Service / Professional Development",
+   "calendarDay": "2026-10-29T16:00:00.000Z",
+   "description": null,
+   "id": 21381,
+   "schoolNumber": 1800
+  },
+  {
+   "calType": "Parent Teacher Conference",
+   "calendarDay": "2026-11-18T16:00:00.000Z",
+   "description": null,
+   "id": 21401,
+   "schoolNumber": 1800
+  },
+  {
+   "calType": "Parent Teacher Conference",
+   "calendarDay": "2026-11-19T16:00:00.000Z",
+   "description": null,
+   "id": 21402,
+   "schoolNumber": 1800
+  },
+  {
+   "calType": "Teacher in Service / Professional Development",
+   "calendarDay": "2026-12-21T16:00:00.000Z",
+   "description": null,
+   "id": 21434,
+   "schoolNumber": 1800
+  },
+  {
+   "calType": "Holiday",
+   "calendarDay": "2026-12-31T16:00:00.000Z",
+   "description": null,
+   "id": 21444,
+   "schoolNumber": 1800
+  },
+  {
+   "calType": "Holiday",
+   "calendarDay": "2027-01-01T16:00:00.000Z",
+   "description": null,
+   "id": 21445,
+   "schoolNumber": 1800
+  },
+  {
+   "calType": "Holiday",
+   "calendarDay": "2027-01-02T16:00:00.000Z",
+   "description": null,
+   "id": 21446,
+   "schoolNumber": 1800
+  },
+  {
+   "calType": "Holiday",
+   "calendarDay": "2027-01-03T16:00:00.000Z",
+   "description": null,
+   "id": 21447,
+   "schoolNumber": 1800
+  },
+  {
+   "calType": "Holiday",
+   "calendarDay": "2027-01-04T16:00:00.000Z",
+   "description": null,
+   "id": 21448,
+   "schoolNumber": 1800
+  },
+  {
+   "calType": "Teacher in Service / Professional Development",
+   "calendarDay": "2027-02-14T16:00:00.000Z",
+   "description": null,
+   "id": 21489,
+   "schoolNumber": 1800
+  },
+  {
+   "calType": "Teacher in Service / Professional Development",
+   "calendarDay": "2027-04-05T16:00:00.000Z",
+   "description": null,
+   "id": 21539,
+   "schoolNumber": 1800
+  },
+  {
+   "calType": "Holiday",
+   "calendarDay": "2027-06-10T16:00:00.000Z",
+   "description": null,
+   "id": 21605,
+   "schoolNumber": 1800
+  }
+ ]
+}
