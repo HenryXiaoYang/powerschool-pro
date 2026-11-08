@@ -6,9 +6,9 @@
 /* Theme follows the system setting. */
 @custom-variant dark (@media (prefers-color-scheme: dark));
 
-/* The icon rail needs room for all eight stops and a pointer that can hover its labels.
+/* The icon rail needs room for all nine stops and a pointer that can hover its labels.
    Touch tablets and short or landscape screens keep the labelled tab bar instead. */
-@custom-variant rail (@media (min-width: 48rem) and (min-height: 30rem) and (pointer: fine));
+@custom-variant rail (@media (min-width: 48rem) and (min-height: 34rem) and (pointer: fine));
 
 @theme inline {
   --font-heading: var(--font-sans);
@@ -52,7 +52,7 @@
   --mesh-3: oklch(0.85 0.07 278);
   --mesh-4: oklch(0.91 0.05 230);
 
-  --glass: oklch(1 0 0 / 0.46);
+  --glass: oklch(1 0 0 / min(1, calc(0.46 * var(--glass-k, 1))));
   --glass-strong: oklch(1 0 0 / 0.78);
   --glass-sunk: oklch(0.2 0.03 240 / 0.05);
   --glass-edge: oklch(1 0 0 / 0.7);
@@ -97,7 +97,7 @@
     --mesh-4: oklch(0.3 0.1 276);
 
     /* Smoked, not milky: a navy pane keeps text AA over the brightest blob. */
-    --glass: oklch(0.18 0.035 260 / 0.38);
+    --glass: oklch(0.18 0.035 260 / min(1, calc(0.38 * var(--glass-k, 1))));
     --glass-strong: oklch(0.3 0.035 258 / 0.82);
     --glass-sunk: oklch(0 0 0 / 0.16);
     --glass-edge: oklch(1 0 0 / 0.12);
@@ -173,8 +173,8 @@
 /* Frosted glass, the one surface material. */
 @utility glass {
   background: var(--glass);
-  -webkit-backdrop-filter: blur(24px) saturate(150%);
-  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: var(--glass-filter, blur(24px) saturate(150%));
+  backdrop-filter: var(--glass-filter, blur(24px) saturate(150%));
   border: 1px solid var(--glass-edge);
   box-shadow:
     inset 0 1px 0 var(--glass-highlight),
@@ -204,6 +204,76 @@
     --glass: var(--glass-strong);
   }
 }
+
+/* "Liquid" glass without the cost of real refraction: a specular rim on the lit edges,
+   a diagonal sheen, and a little extra saturation. Pure gradients and shadows, so it
+   adds no extra blur passes. Settings > Appearance can turn it off. */
+html[data-glass='liquid'] {
+  --sheen: oklch(1 0 0 / 0.34);
+  --sheen-low: oklch(1 0 0 / 0.1);
+  --rim: oklch(1 0 0 / 0.55);
+}
+@media (prefers-color-scheme: dark) {
+  html[data-glass='liquid'] {
+    --sheen: oklch(1 0 0 / 0.1);
+    --sheen-low: oklch(1 0 0 / 0.03);
+    --rim: oklch(1 0 0 / 0.22);
+  }
+}
+html[data-glass='liquid'] .glass {
+  background: linear-gradient(152deg, var(--sheen) 0%, transparent 34%, transparent 72%, var(--sheen-low) 100%), var(--glass);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    inset 1px 0 0 var(--sheen),
+    inset 0 -1px 0 var(--rim),
+    0 18px 40px -18px var(--glass-shadow);
+}
+
+/* The phone dock: the one surface that floats over scrolling content, so it is always
+   a little denser than a panel to keep labels legible over anything. */
+.dock {
+  background-color: color-mix(in oklch, var(--glass) 65%, var(--glass-strong));
+}
+html[data-glass='liquid'] .dock {
+  background-image: linear-gradient(180deg, var(--sheen) 0%, transparent 55%), linear-gradient(152deg, var(--sheen) 0%, transparent 34%);
+}
+/* The lens that marks the current tab: clear glass, brighter than the bar, lifted. */
+.dock-bead {
+  background: linear-gradient(180deg, oklch(1 0 0 / 0.95), oklch(1 0 0 / 0.7));
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 1),
+    inset 0 0 0 1px oklch(1 0 0 / 0.6),
+    0 6px 18px -6px oklch(0.2 0.06 262 / 0.5);
+  will-change: transform;
+}
+@media (prefers-color-scheme: dark) {
+  .dock-bead {
+    background: linear-gradient(180deg, oklch(0.99 0.005 250 / 0.95), oklch(0.9 0.02 250 / 0.82));
+  }
+}
+html[data-glass='liquid'] .dock-bead {
+  background: linear-gradient(180deg, oklch(1 0 0 / 0.78), oklch(1 0 0 / 0.42));
+}
+@media (prefers-color-scheme: dark) {
+  html[data-glass='liquid'] .dock-bead {
+    background: linear-gradient(180deg, oklch(0.99 0.005 250 / 0.88), oklch(0.88 0.03 250 / 0.6));
+  }
+}
+
+/* Hide the bar's scrollbar, keep it swipeable, fade the edges that still have more. */
+.dock-scroll {
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+.dock-scroll::-webkit-scrollbar { display: none; }
+.dock-scroll > * { scroll-snap-align: center; }
+
+/* Calm mode: a still backdrop and no soft-focus animation on each pane. */
+html[data-calm] .mesh span { animation: none; }
+html[data-calm] .settle { animation: none; }
+html[data-calm] .settle .glass { animation: none; }
 
 /* The drifting mesh behind everything. */
 .mesh {

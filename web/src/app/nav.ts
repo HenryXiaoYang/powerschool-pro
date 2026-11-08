@@ -1,11 +1,11 @@
 import type { LucideIcon } from 'lucide-react'
-import { BookOpen, CalendarDays, ClipboardCheck, FileText, GraduationCap, House, UserCheck } from 'lucide-react'
+import { BookOpen, CalendarDays, ClipboardCheck, FileText, GraduationCap, House, Settings, UserCheck } from 'lucide-react'
 
 export interface NavItem {
   to: string
   label: string
   icon: LucideIcon
-  /** Shown in the phone tab bar; the rest live under More. */
+  /** Kept for callers that still split primary from secondary destinations. */
   tab: boolean
 }
 
@@ -17,6 +17,7 @@ export const NAV: NavItem[] = [
   { to: '/grades', label: 'Grades', icon: GraduationCap, tab: false },
   { to: '/attendance', label: 'Attendance', icon: UserCheck, tab: false },
   { to: '/report', label: 'Report', icon: FileText, tab: false },
+  { to: '/settings', label: 'Settings', icon: Settings, tab: false },
 ]
 
 export function titleFor(pathname: string): string {
