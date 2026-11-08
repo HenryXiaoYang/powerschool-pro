@@ -1,15 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Colours are the light theme's tokens: ground, mesh-1/2/3, foreground, now. -->
   <defs>
-    <radialGradient id="a" cx="22%" cy="18%" r="75%"><stop offset="0" stop-color="#2f6fd0"/><stop offset="1" stop-color="#2f6fd0" stop-opacity="0"/></radialGradient>
-    <radialGradient id="b" cx="85%" cy="90%" r="70%"><stop offset="0" stop-color="#1f9fbf"/><stop offset="1" stop-color="#1f9fbf" stop-opacity="0"/></radialGradient>
-    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".42"/><stop offset="1" stop-color="#fff" stop-opacity=".14"/></linearGradient>
+    <clipPath id="tile"><rect width="512" height="512" rx="114"/></clipPath>
+    <radialGradient id="glowA" cx=".12" cy=".08" r=".85"><stop offset="0" stop-color="#a2d4ff"/><stop offset="1" stop-color="#a2d4ff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="glowB" cx=".95" cy=".98" r=".8"><stop offset="0" stop-color="#a7ebf8"/><stop offset="1" stop-color="#a7ebf8" stop-opacity="0"/></radialGradient>
+    <radialGradient id="glowC" cx="1" cy=".4" r=".55"><stop offset="0" stop-color="#c2cafc"/><stop offset="1" stop-color="#c2cafc" stop-opacity="0"/></radialGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".4"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <linearGradient id="ink" x1="0" y1="120" x2="0" y2="392" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#13212d"/><stop offset="1" stop-color="#25384a"/></linearGradient>
+    <filter id="drop" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
   </defs>
-  <rect width="512" height="512" rx="112" fill="#0f1c33"/>
-  <rect width="512" height="512" rx="112" fill="url(#a)"/>
-  <rect width="512" height="512" rx="112" fill="url(#b)"/>
-  <rect x="112" y="112" width="288" height="288" rx="64" fill="url(#g)" stroke="#fff" stroke-opacity=".5" stroke-width="6"/>
-  <rect x="164" y="236" width="184" height="16" rx="8" fill="#9fe0f0"/>
-  <circle cx="164" cy="244" r="20" fill="#9fe0f0"/>
-  <rect x="200" y="176" width="112" height="28" rx="14" fill="#fff" fill-opacity=".85"/>
-  <rect x="200" y="300" width="148" height="28" rx="14" fill="#fff" fill-opacity=".5"/>
+  <g clip-path="url(#tile)">
+    <rect width="512" height="512" fill="#e5f0fc"/>
+    <rect width="512" height="512" fill="url(#glowA)"/>
+    <rect width="512" height="512" fill="url(#glowB)"/>
+    <rect width="512" height="512" fill="url(#glowC)"/>
+    <rect width="512" height="512" fill="url(#sheen)"/>
+    <g transform="translate(0 14)" fill="#13212d" stroke="#13212d" opacity=".18" filter="url(#drop)">
+      <path d="M176 152V360M176 152H250A76 76 0 0 1 250 304H176" fill="none" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="350" cy="360" r="32" stroke="none"/>
+    </g>
+    <path d="M176 152V360M176 152H250A76 76 0 0 1 250 304H176" fill="none" stroke="url(#ink)" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="350" cy="360" r="32" fill="#006d9e"/>
+    <rect width="512" height="512" rx="114" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="6"/>
+  </g>
 </svg>
