@@ -163,7 +163,7 @@ func TestGzip(t *testing.T) {
 // Classmates behind one school IP must not lock each other out.
 func TestLoginRateLimitIsPerAccount(t *testing.T) {
 	r, _ := testServer(t)
-	for i := range 12 {
+	for i := range 40 { // more than any per-IP cap would allow
 		body := `{"username":"student` + strconv.Itoa(i) + `","password":"pw"}`
 		if code := do(r, http.MethodPost, "/api/session", "", body).Code; code != http.StatusOK {
 			t.Fatalf("classmate %d: %d, want 200", i, code)

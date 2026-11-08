@@ -24,9 +24,8 @@ type Options struct {
 type handlers struct {
 	svc    *student.Service
 	sealer *session.Sealer
-	// Classmates on school Wi-Fi share one public IP: the strict limit is per account
-	// on an IP (so nobody can lock out a classmate), with a looser cap per IP.
-	perIP      *limiter
+	// Per account on an IP, so a classmate guessing from another device can't lock you out.
+	// No cap per IP: a whole school can sign in from one network or proxy.
 	perAccount *limiter
 }
 
@@ -43,7 +42,7 @@ func New(svc *student.Service, sealer *session.Sealer, opt Options) *gin.Engine 
 		}))
 	}
 
-	h := handlers{svc: svc, sealer: sealer, perIP: newLimiter(2*time.Second, 30), perAccount: newLimiter(12*time.Second, 5)}
+	h := handlers{svc: svc, sealer: sealer, perAccount: newLimiter(12*time.Second, 5)}
 	r.GET("/healthz", func(c *gin.Context) { c.String(http.StatusOK, "ok") })
 
 	// Snapshot and schedule JSON shrink ~10x; bearer auth (no cookies) keeps BREACH out of reach.
@@ -70,8 +69,7 @@ func (h handlers) login(c *gin.Context) {
 		abort(c, http.StatusBadRequest, CodeBadRequest, "Username and password are required.")
 		return
 	}
-	ip := c.ClientIP()
-	if !h.perIP.allow(ip) || !h.perAccount.allow(ip+"|"+strings.ToLower(strings.TrimSpace(req.Username))) {
+	if !h.perAccount.allow(c.ClientIP() + "|" + strings.ToLower(strings.TrimSpace(req.Username))) {
 		abort(c, http.StatusTooManyRequests, CodeRateLimited, "Too many sign-in attempts. Wait a minute.")
 		return
 	}
