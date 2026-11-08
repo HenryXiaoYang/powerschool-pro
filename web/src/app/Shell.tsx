@@ -155,7 +155,7 @@ function Freshness() {
       <Button
         variant="ghost"
         size="icon"
-        className="size-10 shrink-0 rounded-full md:pointer-fine:size-9"
+        className="size-11 shrink-0 rounded-full md:pointer-fine:size-9"
         aria-label="Refresh"
         disabled={fetching}
         onClick={() => void qc.invalidateQueries()}
