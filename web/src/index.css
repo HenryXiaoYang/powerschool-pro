@@ -232,13 +232,17 @@ html[data-glass='liquid'] .glass {
 /* The phone dock: the one surface that floats over scrolling content, so it is always
    a little denser than a panel to keep labels legible over anything. */
 .dock {
-  background-color: color-mix(in oklch, var(--glass) 12%, var(--glass-strong));
+  background-color: color-mix(in oklch, var(--glass) 65%, var(--glass-strong));
+  /* Own transition layer, so the bar stays put above the cross-fading page. */
+  view-transition-name: dock;
 }
 html[data-glass='liquid'] .dock {
   /* The liquid .glass rule's background shorthand outranks .dock; restore the denser fill. */
-  background-color: color-mix(in oklch, var(--glass) 12%, var(--glass-strong));
+  background-color: color-mix(in oklch, var(--glass) 65%, var(--glass-strong));
   background-image: linear-gradient(180deg, var(--sheen) 0%, transparent 55%), linear-gradient(152deg, var(--sheen) 0%, transparent 34%);
 }
+/* Snapshots drop backdrop blur, so the bar goes near-solid only while a transition runs. */
+html[data-vt] .dock { background-color: color-mix(in oklch, var(--glass) 12%, var(--glass-strong)); }
 /* The lens that marks the current tab: clear glass, brighter than the bar, lifted. */
 .dock-bead {
   background: linear-gradient(180deg, oklch(1 0 0 / 0.95), oklch(1 0 0 / 0.7));
@@ -263,11 +267,6 @@ html[data-glass='liquid'] .dock-bead {
 }
 
 /* Hide the bar's scrollbar, keep it swipeable, fade the edges that still have more. */
-.dock {
-  /* Own transition layer: the bar stays put (and stays opaque enough to read, since snapshots
-     drop backdrop blur) instead of being swept into the page's cross-fade. */
-  view-transition-name: dock;
-}
 ::view-transition-group(dock) { animation: none; z-index: 2; }
 ::view-transition-old(dock) { display: none; }
 ::view-transition-new(dock) { animation: none; }
