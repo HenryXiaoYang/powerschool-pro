@@ -5,6 +5,8 @@ import { Link, NavLink, Outlet, ScrollRestoration, useLocation } from 'react-rou
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { signOut } from '@/features/auth/session'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { setChild, useChild } from '@/lib/child'
 import { ago, clockTime, formatDate, schoolDate } from '@/lib/dates'
 import { useSnapshot } from '@/lib/queries'
 import { useNow } from '@/lib/useNow'
@@ -139,6 +141,31 @@ function Dock() {
   )
 }
 
+/** Which student: shown only when this sign-in can open more than one. */
+function ChildSwitcher() {
+  const { data: snap } = useSnapshot()
+  const child = useChild()
+  // An id this sign-in can no longer open (a parent login removed) falls back to the first student.
+  useEffect(() => {
+    if (snap && child && snap.childId !== child) setChild(snap.childId)
+  }, [snap, child])
+  if (!snap || snap.children.length < 2) return null
+  return (
+    <Select value={String(snap.childId)} onValueChange={(v) => setChild(Number(v))}>
+      <SelectTrigger aria-label="Student" className="h-10 min-w-0 max-w-32 shrink rounded-full border-border bg-muted/60 px-3.5 md:pointer-fine:h-9">
+        <SelectValue />
+      </SelectTrigger>
+      <SelectContent align="end">
+        {snap.children.map((c) => (
+          <SelectItem key={c.id} value={String(c.id)}>
+            {c.name}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  )
+}
+
 function Freshness() {
   const qc = useQueryClient()
   const fetching = useIsFetching() > 0
@@ -184,11 +211,13 @@ function Title({ pathname }: { pathname: string }) {
   const date = schoolDate(now, snap.timeZone)
   const hour = Number(clockTime(now.toISOString(), snap.timeZone).slice(0, 2))
   const cycle = snap.schedule.days.find((d) => d.date === date)
+  // Another student than the account's first: name them instead of greeting the account holder.
+  const other = snap.children.length > 1 && snap.childId !== snap.children[0]?.id
   return (
     <div className="min-w-0">
       <h1 className="line-clamp-2 text-xl leading-tight font-semibold tracking-tight md:truncate md:text-2xl">
-        {greeting(hour)}
-        {snap.profile.firstName && `, ${snap.profile.firstName}`}
+        {other ? snap.profile.firstName : greeting(hour)}
+        {!other && snap.profile.firstName && `, ${snap.profile.firstName}`}
       </h1>
       <p className="text-[13px] text-muted-foreground md:text-sm">
         {formatDate(date, { weekday: 'long', day: 'numeric', month: 'long' })}
@@ -206,7 +235,10 @@ export function Shell() {
       <div className="min-w-0 flex-1 md:glass md:min-h-[calc(100dvh-2.5rem)] md:rounded-2xl lg:min-h-[calc(100dvh-4rem)]">
         <header className="flex min-h-14 items-center justify-between gap-2 px-4 pt-[max(0.75rem,calc(env(safe-area-inset-top)+0.25rem))] pb-2 sm:px-6 md:min-h-[5.5rem] md:gap-3 md:pt-6 md:pb-3">
           <Title pathname={pathname} />
-          <Freshness />
+          <div className="flex shrink-0 items-center gap-1.5">
+            <ChildSwitcher />
+            <Freshness />
+          </div>
         </header>
         <main key={pathname} className="settle px-3 pb-[calc(6rem+env(safe-area-inset-bottom))] sm:px-6 rail:pb-6">
           <Outlet />

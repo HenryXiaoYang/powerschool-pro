@@ -173,3 +173,37 @@ func TestWebApp(t *testing.T) {
 		t.Errorf("assets Cache-Control = %q", got)
 	}
 }
+
+func TestParentLinkAPI(t *testing.T) {
+	r, _ := testServer(t)
+	token := login(t, r)
+
+	if w := do(r, http.MethodPut, "/api/parent", token, `{"username":"parent1","password":"`+fake.WrongPassword+`"}`); w.Code != http.StatusUnauthorized {
+		t.Fatalf("wrong parent password: %d", w.Code)
+	}
+	if w := do(r, http.MethodPut, "/api/parent", "", `{"username":"parent1","password":"pw"}`); w.Code != http.StatusUnauthorized {
+		t.Fatalf("linking needs a session: %d", w.Code)
+	}
+	w := do(r, http.MethodPut, "/api/parent", token, `{"username":"parent1","password":"pw"}`)
+	var res LoginResponse
+	if _ = json.Unmarshal(w.Body.Bytes(), &res); w.Code != http.StatusOK || res.Token == "" {
+		t.Fatalf("link: %d %s", w.Code, w.Body)
+	}
+
+	var snap student.Snapshot
+	w = do(r, http.MethodGet, "/api/student?child=1002", res.Token, "")
+	if err := json.Unmarshal(w.Body.Bytes(), &snap); err != nil || snap.ChildID != 1002 || len(snap.Children) != 2 || !snap.ParentLinked {
+		t.Fatalf("child 1002: %d %v %+v", w.Code, err, snap.Children)
+	}
+	w = do(r, http.MethodGet, "/api/student?child=junk", res.Token, "")
+	if _ = json.Unmarshal(w.Body.Bytes(), &snap); w.Code != http.StatusOK || snap.ChildID != 1001 {
+		t.Fatalf("junk child falls back: %d id=%d", w.Code, snap.ChildID)
+	}
+
+	w = do(r, http.MethodDelete, "/api/parent", res.Token, "")
+	_ = json.Unmarshal(w.Body.Bytes(), &res)
+	w = do(r, http.MethodGet, "/api/student", res.Token, "")
+	if _ = json.Unmarshal(w.Body.Bytes(), &snap); snap.ParentLinked || len(snap.Children) != 1 {
+		t.Fatalf("after unlink: %+v", snap.Children)
+	}
+}

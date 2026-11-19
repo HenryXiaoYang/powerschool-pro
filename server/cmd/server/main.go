@@ -92,5 +92,5 @@ func newService(cfg config.Config) (*student.Service, error) {
 	if err != nil {
 		return nil, err
 	}
-	return student.NewService(m, p, cfg.TimeZone), nil
+	return student.NewService(m, p, cfg.TimeZone).WithPortalURL(cfg.SchoolURL), nil
 }

@@ -1,8 +1,13 @@
-import { LogOut, RotateCcw } from 'lucide-react'
-import { useId, type ReactNode } from 'react'
+import { LoaderCircle, LogOut, RotateCcw } from 'lucide-react'
+import { useId, useState, type FormEvent, type ReactNode } from 'react'
 import { Panel } from '@/components/glass/Panel'
 import { Button } from '@/components/ui/button'
-import { signOut } from '@/features/auth/session'
+import { Checkbox } from '@/components/ui/checkbox'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { linkParent, signOut, unlinkParent, useSession } from '@/features/auth/session'
+import { ApiError } from '@/lib/api'
+import { useSnapshot } from '@/lib/queries'
 import { DEFAULTS, setAppearance, useAppearance } from '@/lib/appearance'
 import { cn } from '@/lib/utils'
 
@@ -45,6 +50,7 @@ export function SettingsPage() {
           <Switch label="Calm mode" hint="Keeps the backdrop still and skips pane animations. Easier on older phones." checked={a.calm} onChange={(calm) => setAppearance({ calm })} />
         </div>
       </Panel>
+      <ParentLogin />
       <Panel title="Account">
         <Button variant="secondary" className="h-11 w-full justify-start gap-2 px-3 text-[15px]" onClick={() => void signOut()}>
           <LogOut className="size-4" /> Sign out
@@ -107,5 +113,78 @@ function Switch({ label, hint, checked, onChange }: { label: ReactNode; hint: st
         <span className={cn('absolute top-0.5 left-0.5 size-7 rounded-full bg-white shadow transition-transform duration-200', checked && 'translate-x-6')} />
       </button>
     </div>
+  )
+}
+
+/** A parent account added beside the main sign-in: it opens the parent's children and the school's parent links. */
+function ParentLogin() {
+  const { parentLinked } = useSession()
+  const { data: snap } = useSnapshot()
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [remember, setRemember] = useState(false)
+  const [busy, setBusy] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  async function submit(e: FormEvent) {
+    e.preventDefault()
+    setBusy(true)
+    setError(null)
+    try {
+      await linkParent(username.trim(), password, remember)
+      setUsername('')
+      setPassword('')
+    } catch (err) {
+      setError(err instanceof ApiError ? err.message : 'Couldn’t add the parent login. Try again.')
+    } finally {
+      setBusy(false)
+    }
+  }
+
+  if (parentLinked) {
+    const names = snap?.children.map((c) => c.name).join(', ')
+    return (
+      <Panel title="Parent login">
+        <p className="text-sm text-muted-foreground">
+          A parent login is signed in beside yours{names ? `. Students you can open: ${names}.` : '.'}
+        </p>
+        <Button variant="secondary" className="mt-3 h-11 w-full justify-start gap-2 px-3 text-[15px]" onClick={() => void unlinkParent()}>
+          Remove parent login
+        </Button>
+      </Panel>
+    )
+  }
+  return (
+    <Panel title="Parent login">
+      <form onSubmit={submit} className="grid gap-3" aria-describedby="parent-note">
+        <p id="parent-note" className="text-sm text-muted-foreground">
+          Add a parent account to see your children, the school’s parent links and conference booking. It stays beside your own sign-in.
+        </p>
+        <div className="space-y-1.5">
+          <Label htmlFor="parent-username">Parent username</Label>
+          <Input id="parent-username" name="parent-username" autoComplete="off" autoCapitalize="none" spellCheck={false} required value={username} onChange={(e) => setUsername(e.target.value)} className="h-11" />
+        </div>
+        <div className="space-y-1.5">
+          <Label htmlFor="parent-password">Parent password</Label>
+          <Input id="parent-password" name="parent-password" type="password" autoComplete="new-password" required value={password} onChange={(e) => setPassword(e.target.value)} className="h-11" />
+        </div>
+        <div className="flex items-start gap-2.5">
+          <Checkbox id="parent-remember" checked={remember} onCheckedChange={(v) => setRemember(v === true)} className="mt-0.5" />
+          <div className="grid gap-0.5">
+            <Label htmlFor="parent-remember">Remember on this device</Label>
+            <p className="text-xs text-muted-foreground">Encrypted, like your own sign-in. Off: asks again after you close this tab.</p>
+          </div>
+        </div>
+        {error && (
+          <p role="alert" className="rounded-md border border-alert/40 px-3 py-2 text-sm text-alert">
+            {error}
+          </p>
+        )}
+        <Button type="submit" disabled={busy} className="bead h-11 w-full rounded-md text-[15px] font-semibold hover:bg-primary/90">
+          {busy && <LoaderCircle className="animate-spin" />}
+          {busy ? 'Adding…' : 'Add parent login'}
+        </Button>
+      </form>
+    </Panel>
   )
 }
