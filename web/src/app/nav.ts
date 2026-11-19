@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react'
-import { BookOpen, CalendarDays, ClipboardCheck, FileText, GraduationCap, House, Settings, UserCheck } from 'lucide-react'
+import { BookOpen, CalendarDays, ClipboardCheck, FileText, GraduationCap, House, School, Settings, UserCheck } from 'lucide-react'
 
 export interface NavItem {
   to: string
@@ -15,6 +15,7 @@ export const NAV: NavItem[] = [
   { to: '/grades', label: 'Grades', icon: GraduationCap },
   { to: '/attendance', label: 'Attendance', icon: UserCheck },
   { to: '/report', label: 'Report', icon: FileText },
+  { to: '/school', label: 'School', icon: School },
   { to: '/settings', label: 'Settings', icon: Settings },
 ]
 

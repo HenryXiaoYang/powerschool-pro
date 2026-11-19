@@ -40,4 +40,16 @@ describe('vault', () => {
     expect(await loadCredentials()).toBeNull()
     expect(hasCredentials()).toBe(false)
   })
+
+  it('keeps the parent login in its own slot', async () => {
+    await saveCredentials({ username: 'alex', password: 'pw' }, false)
+    await saveCredentials({ username: 'parent', password: 'pp' }, false, 'parent')
+    expect(await loadCredentials()).toEqual({ username: 'alex', password: 'pw' })
+    expect(await loadCredentials('parent')).toEqual({ username: 'parent', password: 'pp' })
+    await clearCredentials('parent')
+    expect(hasCredentials('parent')).toBe(false)
+    expect(hasCredentials()).toBe(true)
+    await clearCredentials()
+    expect(hasCredentials()).toBe(false)
+  })
 })

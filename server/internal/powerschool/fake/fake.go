@@ -9,6 +9,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"regexp"
+	"strings"
 	"time"
 
 	"github.com/HenryXiaoYang/powerschool-mirror/server/internal/powerschool"
@@ -28,6 +29,7 @@ const cycle = 14 * 24 * time.Hour
 const (
 	WrongPassword = "wrong"
 	ExpiredTicket = "expired"
+	ParentTicket  = "fake-parent-ticket"
 )
 
 type Mobile struct{ Now func() time.Time }
@@ -43,8 +45,13 @@ func (Mobile) Login(_ context.Context, username, password string) (mobile.Sessio
 	if username == "" || password == "" || password == WrongPassword {
 		return mobile.Session{}, powerschool.ErrInvalidCredentials
 	}
+	// A username starting with "parent" signs in as a parent with two children.
+	ticket, ids := "fake-ticket", mobile.List[int64]{1001}
+	if strings.HasPrefix(username, "parent") {
+		ticket, ids = ParentTicket, mobile.List[int64]{1001, 1002}
+	}
 	return mobile.Session{
-		ServiceTicket: "fake-ticket", StudentIDs: mobile.List[int64]{1001},
+		ServiceTicket: ticket, StudentIDs: ids,
 		UserID: mobile.Text{Value: "1", Valid: true}, UserType: mobile.Text{Value: "2", Valid: true},
 		ServerInfo: mobile.ServerInfo{APIVersion: mobile.Text{Value: "3.0.0", Valid: true}},
 	}, nil
@@ -54,11 +61,7 @@ func (m Mobile) StudentData(_ context.Context, s mobile.Session) ([]mobile.Stude
 	if s.ServiceTicket == ExpiredTicket {
 		return nil, powerschool.ErrSessionExpired
 	}
-	d, err := m.load()
-	if err != nil {
-		return nil, err
-	}
-	return []mobile.StudentData{d}, nil
+	return m.records(s, nil)
 }
 
 // SectionTimes repeats the fixture's single cycle across the requested month.
@@ -66,24 +69,60 @@ func (m Mobile) SectionTimes(_ context.Context, s mobile.Session, year, month in
 	if s.ServiceTicket == ExpiredTicket {
 		return nil, powerschool.ErrSessionExpired
 	}
-	d, err := m.load()
-	if err != nil {
-		return nil, err
-	}
 	first := time.Date(year, time.Month(month), 1, 0, 0, 0, 0, anchor.Location())
-	for i := range d.Sections {
-		var out mobile.List[mobile.StartStop]
-		for _, ss := range d.Sections[i].StartStopDates {
-			for k := -4; k <= 4; k++ {
-				start, stop := ss.Start.Add(time.Duration(k)*cycle), ss.Stop.Add(time.Duration(k)*cycle)
-				if local := start.In(anchor.Location()); local.Year() == first.Year() && local.Month() == first.Month() {
-					out = append(out, mobile.StartStop{SectionEnrollmentID: ss.SectionEnrollmentID, Start: &start, Stop: &stop})
+	return m.records(s, func(d *mobile.StudentData) {
+		for i := range d.Sections {
+			var out mobile.List[mobile.StartStop]
+			for _, ss := range d.Sections[i].StartStopDates {
+				for k := -4; k <= 4; k++ {
+					start, stop := ss.Start.Add(time.Duration(k)*cycle), ss.Stop.Add(time.Duration(k)*cycle)
+					if local := start.In(anchor.Location()); local.Year() == first.Year() && local.Month() == first.Month() {
+						out = append(out, mobile.StartStop{SectionEnrollmentID: ss.SectionEnrollmentID, Start: &start, Stop: &stop})
+					}
 				}
 			}
+			d.Sections[i].StartStopDates = out
 		}
-		d.Sections[i].StartStopDates = out
+	})
+}
+
+// records returns one fixture copy per student the session can open. The second child is
+// a renamed copy; announcements are school-wide and the school's links go to parents only.
+func (m Mobile) records(s mobile.Session, edit func(*mobile.StudentData)) ([]mobile.StudentData, error) {
+	ids := s.StudentIDs
+	if len(ids) == 0 {
+		ids = mobile.List[int64]{1001}
 	}
-	return []mobile.StudentData{d}, nil
+	out := make([]mobile.StudentData, 0, len(ids))
+	for _, id := range ids {
+		d, err := m.load()
+		if err != nil {
+			return nil, err
+		}
+		d.StudentID = id
+		if d.Student != nil {
+			d.Student.ID = id
+			if id == 1002 {
+				d.Student.FirstName = mobile.Text{Value: "Jamie", Valid: true}
+				d.Student.GradeLevel = 9
+			}
+		}
+		d.Bulletins = mobile.List[mobile.Bulletin]{
+			{ID: 1, Name: mobile.Text{Value: "Winter concert", Valid: true}, Body: mobile.Text{Value: "<p>Doors open at <b>6pm</b> in the main hall.</p>", Valid: true},
+				StartDate: mobile.Text{Value: "2026-11-01", Valid: true}, EndDate: mobile.Text{Value: "2099-01-01", Valid: true}},
+		}
+		if s.ServiceTicket == ParentTicket {
+			d.CustomPage = mobile.List[mobile.CustomPage]{
+				{FormTitle: mobile.Text{Value: "Parent-Teacher Conference Booking", Valid: true}, RedirectURL: mobile.Text{Value: "https://school.example.org/ptc", Valid: true}},
+				{FormTitle: mobile.Text{Value: "Lunch menu", Valid: true}, RedirectURL: mobile.Text{Value: "/menu", Valid: true}},
+			}
+		}
+		if edit != nil {
+			edit(&d)
+		}
+		out = append(out, d)
+	}
+	return out, nil
 }
 
 var isoTime = regexp.MustCompile(`^\d{4}-\d{2}-\d{2}T`)

@@ -3,7 +3,10 @@ package student
 import (
 	"context"
 	"errors"
+	"fmt"
 	"log/slog"
+	"slices"
+	"strings"
 	"time"
 
 	"github.com/HenryXiaoYang/powerschool-mirror/server/internal/powerschool"
@@ -30,16 +33,32 @@ type Portal interface {
 type Credentials struct {
 	Mobile mobile.Session  `json:"m"`
 	Portal *portal.Session `json:"p,omitempty"`
+	// Parent is an optional second sign-in (a parent account) used alongside the first, so
+	// a student can unlock parent-only data and open the parent's children.
+	Parent *Linked `json:"x,omitempty"`
+}
+
+// Linked is the parent sign-in attached to a session.
+type Linked struct {
+	Mobile mobile.Session  `json:"m"`
+	Portal *portal.Session `json:"p,omitempty"`
 }
 
 // ErrPortalUnavailable means this session has no portal sign-in (report cards are off).
 var ErrPortalUnavailable = errors.New("student: portal session unavailable")
 
 type Service struct {
-	mobile Mobile
-	portal Portal
-	loc    *time.Location
-	now    func() time.Time
+	mobile    Mobile
+	portal    Portal
+	loc       *time.Location
+	now       func() time.Time
+	portalURL string
+}
+
+// WithPortalURL sets the school's PowerSchool origin, used to resolve the school's relative links.
+func (s *Service) WithPortalURL(origin string) *Service {
+	s.portalURL = strings.TrimRight(origin, "/")
+	return s
 }
 
 func NewService(m Mobile, p Portal, loc *time.Location) *Service {
@@ -63,21 +82,72 @@ func (s *Service) Login(ctx context.Context, username, password string) (Credent
 	return creds, nil
 }
 
-func (s *Service) Snapshot(ctx context.Context, c Credentials) (Snapshot, error) {
-	data, err := s.mobile.StudentData(ctx, c.Mobile)
+// LinkParent signs in a parent account and attaches it to the session. The student sign-in
+// stays the primary one; the parent's children join the switcher and its data fills the
+// parent-only sections. A wrong parent password fails here and leaves c unchanged.
+func (s *Service) LinkParent(ctx context.Context, c Credentials, username, password string) (Credentials, error) {
+	ps, portErr := s.portal.Login(ctx, username, password)
+	ms, err := s.mobile.Login(ctx, username, password)
+	if err != nil {
+		return Credentials{}, err
+	}
+	linked := &Linked{Mobile: ms}
+	if portErr == nil {
+		linked.Portal = &ps
+	}
+	c.Parent = linked
+	return c, nil
+}
+
+// UnlinkParent detaches the parent sign-in.
+func (s *Service) UnlinkParent(c Credentials) Credentials {
+	c.Parent = nil
+	return c
+}
+
+// Snapshot builds the view of one child. child 0, or an id this sign-in cannot open, shows
+// the primary session's first student.
+func (s *Service) Snapshot(ctx context.Context, c Credentials, child int64) (Snapshot, error) {
+	primary, err := s.mobile.StudentData(ctx, c.Mobile)
 	if err != nil {
 		return Snapshot{}, err
 	}
-	// shortcut: first student only; the target accounts have one. Add a student switcher for parent accounts.
-	return Build(data[0], s.loc, s.now()), nil
+	var parent []mobile.StudentData
+	if c.Parent != nil {
+		if parent, err = s.mobile.StudentData(ctx, c.Parent.Mobile); err != nil {
+			return Snapshot{}, err
+		}
+	}
+	d, ok := pick(child, primary, parent)
+	if !ok {
+		return Snapshot{}, fmt.Errorf("%w: no student on this account", powerschool.ErrUpstream)
+	}
+	now := s.now()
+	snap := Build(d, s.loc, now)
+	sets := [][]mobile.StudentData{primary, parent}
+	snap.Children = children(primary, parent)
+	snap.ChildID = recordID(d)
+	snap.ParentLinked = c.Parent != nil
+	snap.Announcements = announcements(sets, now.In(s.loc).Format(time.DateOnly))
+	snap.Links = links(sets, s.portalURL)
+	snap.PortalURL = s.portalURL
+	return snap, nil
 }
 
-func (s *Service) Schedule(ctx context.Context, c Credentials, year, month int) (Schedule, error) {
-	data, err := s.mobile.SectionTimes(ctx, c.Mobile, year, month)
+func (s *Service) Schedule(ctx context.Context, c Credentials, child int64, year, month int) (Schedule, error) {
+	sess := c.Mobile
+	if c.Parent != nil && child != 0 && !slices.Contains(c.Mobile.StudentIDs, child) && slices.Contains(c.Parent.Mobile.StudentIDs, child) {
+		sess = c.Parent.Mobile
+	}
+	data, err := s.mobile.SectionTimes(ctx, sess, year, month)
 	if err != nil {
 		return Schedule{}, err
 	}
-	return BuildSchedule(data[0].Sections, s.loc, year, month), nil
+	d, ok := pick(child, data)
+	if !ok {
+		return Schedule{}, fmt.Errorf("%w: no student on this account", powerschool.ErrUpstream)
+	}
+	return BuildSchedule(d.Sections, s.loc, year, month), nil
 }
 
 func (s *Service) ReportCards(ctx context.Context, c Credentials) ([]ReportCard, error) {

@@ -83,3 +83,20 @@ export async function postSession(username: string, password: string): Promise<L
   if (!res.ok) throw await toError(res)
   return json<LoginResponse>(res)
 }
+
+/** Attach a parent login to the current session; resolves to the session's new token. */
+export async function putParent(token: string | null, username: string, password: string): Promise<LoginResponse> {
+  const res = await send('/api/parent', token, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username, password }),
+  })
+  if (!res.ok) throw await toError(res)
+  return json<LoginResponse>(res)
+}
+
+export async function deleteParent(token: string | null): Promise<LoginResponse> {
+  const res = await send('/api/parent', token, { method: 'DELETE' })
+  if (!res.ok) throw await toError(res)
+  return json<LoginResponse>(res)
+}

@@ -46,6 +46,24 @@ type StudentData struct {
 	Attendance           List[Attendance]         `json:"attendance"`
 	AttendanceCodes      List[AttendanceCode]     `json:"attendanceCodes"`
 	NotInSessionDays     List[NotInSessionDay]    `json:"notInSessionDays"`
+	Bulletins            List[Bulletin]           `json:"bulletins"`
+	CustomPage           List[CustomPage]         `json:"customPage"`
+}
+
+// Bulletin is a school announcement. Dates are kept as sent ("2026-11-02", sometimes with a zone).
+type Bulletin struct {
+	ID        int64 `json:"id"`
+	Name      Text  `json:"name"`
+	Body      Text  `json:"body"`
+	StartDate Text  `json:"startDate"`
+	EndDate   Text  `json:"endDate"`
+	SortOrder int   `json:"sortOrder"`
+}
+
+// CustomPage is a link the school adds to the mobile app (often parent-facing).
+type CustomPage struct {
+	FormTitle   Text `json:"formTitle"`
+	RedirectURL Text `json:"redirectURL"`
 }
 
 type Student struct {

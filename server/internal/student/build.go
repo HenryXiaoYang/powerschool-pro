@@ -25,6 +25,7 @@ func Build(d mobile.StudentData, loc *time.Location, now time.Time) Snapshot {
 		Terms: []Term{}, ReportingTerms: []ReportingTerm{}, Courses: []Course{}, Assignments: []Assignment{},
 		FinalGrades: []FinalGrade{}, Attendance: []Attendance{}, AttendanceCodes: []AttendanceCode{},
 		Periods: []Period{}, Holidays: []Holiday{},
+		Children: []Child{}, Announcements: []Announcement{}, Links: []Link{},
 	}
 	if st := d.Student; st != nil {
 		snap.Profile = Profile{
