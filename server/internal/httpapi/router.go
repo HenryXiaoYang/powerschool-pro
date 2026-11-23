@@ -47,6 +47,8 @@ func New(svc *student.Service, sealer *session.Sealer, opt Options) *gin.Engine 
 
 	authed := api.Group("", requireSession(sealer))
 	authed.GET("/student", h.student)
+	authed.PUT("/parent", h.linkParent)
+	authed.DELETE("/parent", h.unlinkParent)
 	authed.GET("/schedule", h.schedule)
 	authed.GET("/report-cards", h.reportCards)
 	authed.GET("/report-cards/:id", h.reportCard)
@@ -78,8 +80,45 @@ func (h handlers) login(c *gin.Context) {
 	c.JSON(http.StatusOK, LoginResponse{Token: token, ReportCards: creds.Portal != nil})
 }
 
+// childParam is the student a request is about; 0 (absent or invalid) means the first one.
+func childParam(c *gin.Context) int64 {
+	id, err := strconv.ParseInt(c.Query("child"), 10, 64)
+	if err != nil || id < 0 {
+		return 0
+	}
+	return id
+}
+
+// linkParent signs a parent account in beside the current session and returns a new token.
+func (h handlers) linkParent(c *gin.Context) {
+	var req LoginRequest
+	if err := c.ShouldBindJSON(&req); err != nil {
+		abort(c, http.StatusBadRequest, CodeBadRequest, "Username and password are required.")
+		return
+	}
+	creds, err := h.svc.LinkParent(c.Request.Context(), credentials(c), req.Username, req.Password)
+	if err != nil {
+		fail(c, err)
+		return
+	}
+	h.respondToken(c, creds)
+}
+
+func (h handlers) unlinkParent(c *gin.Context) {
+	h.respondToken(c, h.svc.UnlinkParent(credentials(c)))
+}
+
+func (h handlers) respondToken(c *gin.Context, creds student.Credentials) {
+	token, err := h.sealer.Seal(creds)
+	if err != nil {
+		fail(c, err)
+		return
+	}
+	c.JSON(http.StatusOK, LoginResponse{Token: token, ReportCards: creds.Portal != nil})
+}
+
 func (h handlers) student(c *gin.Context) {
-	snap, err := h.svc.Snapshot(c.Request.Context(), credentials(c))
+	snap, err := h.svc.Snapshot(c.Request.Context(), credentials(c), childParam(c))
 	if err != nil {
 		fail(c, err)
 		return
@@ -94,7 +133,7 @@ func (h handlers) schedule(c *gin.Context) {
 		abort(c, http.StatusBadRequest, CodeBadRequest, "year and month are required.")
 		return
 	}
-	sched, err := h.svc.Schedule(c.Request.Context(), credentials(c), year, month)
+	sched, err := h.svc.Schedule(c.Request.Context(), credentials(c), childParam(c), year, month)
 	if err != nil {
 		fail(c, err)
 		return

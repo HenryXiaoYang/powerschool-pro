@@ -3,15 +3,18 @@ import { useMemo } from 'react'
 import type { ReportCardList } from '@/api/api.gen'
 import type { Course, Schedule, Snapshot } from '@/api/student.gen'
 import { request } from './api'
+import { useChild } from './child'
 import { courseHues } from './grades'
 
-export const snapshotQuery = queryOptions({
-  queryKey: ['student'],
-  queryFn: () => request<Snapshot>('/api/student'),
-})
+/** Everything for one student; `child` 0 is the account's first student. */
+export const snapshotQuery = (child: number) =>
+  queryOptions({
+    queryKey: ['student', child],
+    queryFn: () => request<Snapshot>(child ? `/api/student?child=${child}` : '/api/student'),
+  })
 
 export function useSnapshot() {
-  return useQuery(snapshotQuery)
+  return useQuery(snapshotQuery(useChild()))
 }
 
 /** Courses by id plus their hue, derived once per snapshot. */
@@ -29,10 +32,11 @@ export function useSchedule(
   year: number,
   month: number,
 ): { data: Schedule | undefined; isPending: boolean; error: Error | null; refetch: () => void } {
+  const child = useChild()
   const inSnapshot = snap?.schedule.year === year && snap.schedule.month === month
   const q = useQuery({
-    queryKey: ['schedule', year, month],
-    queryFn: () => request<Schedule>(`/api/schedule?year=${year}&month=${month}`),
+    queryKey: ['schedule', child, year, month],
+    queryFn: () => request<Schedule>(`/api/schedule?year=${year}&month=${month}${child ? `&child=${child}` : ''}`),
     enabled: !!snap && !inSnapshot,
   })
   if (inSnapshot) return { data: snap.schedule, isPending: false, error: null, refetch: () => {} }

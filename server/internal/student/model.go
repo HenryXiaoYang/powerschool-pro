@@ -21,6 +21,40 @@ type Snapshot struct {
 	Schedule  Schedule  `json:"schedule"`
 	FetchedAt time.Time `json:"fetchedAt"`
 	TimeZone  string    `json:"timeZone"`
+
+	// Children are every student this sign-in can open (a parent account links several;
+	// a parent login added to a student's session adds its children). ChildID is the one shown.
+	Children []Child `json:"children"`
+	ChildID  int64   `json:"childId"`
+	// ParentLinked is true when a parent login is attached to this session.
+	ParentLinked bool `json:"parentLinked"`
+	// Announcements are the school's bulletins, newest first.
+	Announcements []Announcement `json:"announcements"`
+	// Links are the school's own links (conference booking, forms), resolved against the portal.
+	Links []Link `json:"links"`
+	// PortalURL is the school's PowerSchool origin; "" when unknown.
+	PortalURL string `json:"portalUrl"`
+}
+
+type Child struct {
+	ID    int64  `json:"id"`
+	Name  string `json:"name"` // first name, or "Student" when the API sends none
+	Grade int    `json:"grade"`
+}
+
+type Announcement struct {
+	ID    int64  `json:"id"`
+	Title string `json:"title"`
+	Body  string `json:"body"`  // plain text; the school's markup is stripped
+	Start string `json:"start"` // local date YYYY-MM-DD, "" when open-ended
+	End   string `json:"end"`
+}
+
+type Link struct {
+	Title string `json:"title"`
+	URL   string `json:"url"` // absolute http(s) URL
+	// Conference marks links that look like parent-teacher conference booking.
+	Conference bool `json:"conference"`
 }
 
 type Profile struct {

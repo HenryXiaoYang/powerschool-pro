@@ -6,9 +6,9 @@
 /* Theme follows the system setting. */
 @custom-variant dark (@media (prefers-color-scheme: dark));
 
-/* The icon rail needs room for all nine stops and a pointer that can hover its labels.
+/* The icon rail needs room for all ten stops and a pointer that can hover its labels.
    Touch tablets and short or landscape screens keep the labelled tab bar instead. */
-@custom-variant rail (@media (min-width: 48rem) and (min-height: 34rem) and (pointer: fine));
+@custom-variant rail (@media (min-width: 48rem) and (min-height: 38rem) and (pointer: fine));
 
 @theme inline {
   --font-heading: var(--font-sans);

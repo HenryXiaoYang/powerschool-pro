@@ -34,8 +34,10 @@ The browser can't call PowerSchool directly: the mobile API needs HTTP Digest au
 | Endpoint | |
 |---|---|
 | `POST /api/session` | `{username, password}` → `{token, reportCards}` |
-| `GET /api/student` | everything for the views (current month's schedule included) |
-| `GET /api/schedule?year=&month=` | another month's meetings |
+| `GET /api/student?child=` | everything for the views (current month's schedule included). `child` picks one of the account's students; omitted or unknown gives the first |
+| `GET /api/schedule?year=&month=&child=` | another month's meetings |
+| `PUT /api/parent` | `{username, password}` → `{token, reportCards}`: adds a parent login beside the current session (its children and the school's parent links join the views) |
+| `DELETE /api/parent` | removes it; returns a new token |
 | `GET /api/report-cards`, `GET /api/report-cards/{id}` | archived report cards |
 
 Errors are `{error: {code, message}}`. On `session_expired` the app signs in again silently with the stored credentials and retries the request once.
@@ -51,7 +53,7 @@ Errors are `{error: {code, message}}`. On `session_expired` the app signs in aga
 
 ## Known limits
 
-- Only the first student on an account is shown (parent accounts with several children would need a switcher).
+- Parent accounts: children appear in a switcher, and a parent login can be added beside a student sign-in (Settings). The school's own links (including conference booking, when it publishes one) and announcements come from the mobile API; parent-teacher conference booking itself is not in that API, so the app links out to the school's page rather than booking in-app. Fees and meal balances are in the API but not shown yet.
 - Term grades appear only once the school posts them. When the next term's grades are out, run `make live-test` and check `finalGrades=` is non-zero. If the mobile API stays empty while the portal shows grades, the fallback is scraping `guardian/home.html`.
 - SSO/MFA accounts are not supported (the protocol uses username/password).
 - `server/internal/powerschool/fake/fixture.json` is synthetic: real timetable shapes, invented people and scores.

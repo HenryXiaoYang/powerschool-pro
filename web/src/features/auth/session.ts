@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from 'react'
-import { ApiError, configureAuth, postSession } from '@/lib/api'
+import { ApiError, configureAuth, deleteParent, postSession, putParent } from '@/lib/api'
 import { clearCache } from '@/lib/persist'
 import { clearCredentials, hasCredentials, loadCredentials, saveCredentials } from './vault'
 
@@ -31,9 +31,10 @@ let reportCards = read(PORTAL) !== 'false'
 let signedIn = token !== null || hasCredentials()
 
 const listeners = new Set<() => void>()
-let snapshot = { signedIn, reportCards }
+let parentLinked = hasCredentials('parent')
+let snapshot = { signedIn, reportCards, parentLinked }
 function notify() {
-  snapshot = { signedIn, reportCards }
+  snapshot = { signedIn, reportCards, parentLinked }
   listeners.forEach((l) => l())
 }
 
@@ -54,10 +55,54 @@ export async function signIn(username: string, password: string, remember: boole
 export async function signOut() {
   token = null
   signedIn = false
+  parentLinked = false
   write(TOKEN, null)
   write(PORTAL, null)
   await Promise.all([clearCredentials(), clearCache()])
   notify()
+}
+
+/** Attach the saved parent login to the current session. Never throws: a parent problem must not cost the main sign-in. */
+async function attachParent() {
+  const creds = await loadCredentials('parent')
+  if (!creds) return
+  try {
+    accept(await putParent(token, creds.username, creds.password))
+  } catch (err) {
+    if (err instanceof ApiError && err.code === 'invalid_credentials') {
+      await clearCredentials('parent') // the parent password changed: stop retrying it
+      parentLinked = false
+      notify()
+    }
+  }
+}
+
+/** Sign a parent account in beside the current session and remember it on this device. */
+export async function linkParent(username: string, password: string, remember: boolean) {
+  let res
+  try {
+    res = await putParent(token, username, password)
+  } catch (err) {
+    if (!(err instanceof ApiError) || err.code !== 'session_expired') throw err
+    await relogin() // the main session lapsed: sign in again, then retry once
+    res = await putParent(token, username, password)
+  }
+  accept(res)
+  await saveCredentials({ username, password }, remember, 'parent')
+  parentLinked = true
+  notify()
+  await clearCache() // every cached view was for the old session
+}
+
+export async function unlinkParent() {
+  await clearCredentials('parent')
+  parentLinked = false
+  try {
+    accept(await deleteParent(token))
+  } catch {
+    notify() // the session ends with the tab anyway; the parent login is already forgotten here
+  }
+  await clearCache()
 }
 
 let pending: Promise<string> | null = null
@@ -72,6 +117,7 @@ function relogin(): Promise<string> {
     }
     try {
       accept(await postSession(creds.username, creds.password))
+      await attachParent() // a new student session has no parent attached yet
       return token as string
     } catch (err) {
       if (err instanceof ApiError && err.code === 'invalid_credentials') await signOut() // password changed

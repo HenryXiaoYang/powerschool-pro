@@ -10,7 +10,9 @@ export interface Credentials {
 }
 
 const KEY_ID = 'psm.vault-key'
-const BLOB = 'psm.credentials'
+// Two slots: the main sign-in, and an optional parent login added beside it.
+export type Slot = 'student' | 'parent'
+const BLOBS: Record<Slot, string> = { student: 'psm.credentials', parent: 'psm.credentials.parent' }
 
 function stores(): Storage[] {
   try {
@@ -32,33 +34,34 @@ const b64 = (b: Uint8Array) => btoa(String.fromCharCode(...b))
 const unb64 = (s: string) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0))
 
 /** Encrypt and store; `remember` persists across browser restarts, otherwise tab-scoped. */
-export async function saveCredentials(creds: Credentials, remember: boolean): Promise<void> {
+export async function saveCredentials(creds: Credentials, remember: boolean, slot: Slot = 'student'): Promise<void> {
   const iv = crypto.getRandomValues(new Uint8Array(12))
   const data = new TextEncoder().encode(JSON.stringify(creds))
   const ct = new Uint8Array(await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, await vaultKey(), data))
   const [session, local] = stores()
-  for (const s of stores()) s.removeItem(BLOB)
-  ;(remember ? local : session)?.setItem(BLOB, `${b64(iv)}.${b64(ct)}`)
+  for (const s of stores()) s.removeItem(BLOBS[slot])
+  ;(remember ? local : session)?.setItem(BLOBS[slot], `${b64(iv)}.${b64(ct)}`)
 }
 
-export async function loadCredentials(): Promise<Credentials | null> {
-  const blob = stores().map((s) => s.getItem(BLOB)).find(Boolean)
+export async function loadCredentials(slot: Slot = 'student'): Promise<Credentials | null> {
+  const blob = stores().map((s) => s.getItem(BLOBS[slot])).find(Boolean)
   if (!blob) return null
   try {
     const [iv, ct] = blob.split('.').map(unb64)
     const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, await vaultKey(), ct)
     return JSON.parse(new TextDecoder().decode(plain)) as Credentials
   } catch {
-    await clearCredentials() // key gone or blob tampered: unusable
+    await clearCredentials(slot) // key gone or blob tampered: unusable
     return null
   }
 }
 
-export function hasCredentials(): boolean {
-  return stores().some((s) => s.getItem(BLOB) !== null)
+export function hasCredentials(slot: Slot = 'student'): boolean {
+  return stores().some((s) => s.getItem(BLOBS[slot]) !== null)
 }
 
-export async function clearCredentials(): Promise<void> {
-  for (const s of stores()) s.removeItem(BLOB)
-  await del(KEY_ID)
+/** One slot, or (no argument) everything including the key. */
+export async function clearCredentials(slot?: Slot): Promise<void> {
+  for (const s of stores()) for (const k of slot ? [BLOBS[slot]] : Object.values(BLOBS)) s.removeItem(k)
+  if (!slot) await del(KEY_ID)
 }

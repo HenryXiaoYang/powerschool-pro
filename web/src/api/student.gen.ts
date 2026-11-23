@@ -28,6 +28,48 @@ export interface Snapshot {
   schedule: Schedule;
   fetchedAt: string;
   timeZone: string;
+  /**
+   * Children are every student this sign-in can open (a parent account links several;
+   * a parent login added to a student's session adds its children). ChildID is the one shown.
+   */
+  children: Child[];
+  childId: number /* int64 */;
+  /**
+   * ParentLinked is true when a parent login is attached to this session.
+   */
+  parentLinked: boolean;
+  /**
+   * Announcements are the school's bulletins, newest first.
+   */
+  announcements: Announcement[];
+  /**
+   * Links are the school's own links (conference booking, forms), resolved against the portal.
+   */
+  links: Link[];
+  /**
+   * PortalURL is the school's PowerSchool origin; "" when unknown.
+   */
+  portalUrl: string;
+}
+export interface Child {
+  id: number /* int64 */;
+  name: string; // first name, or "Student" when the API sends none
+  grade: number /* int */;
+}
+export interface Announcement {
+  id: number /* int64 */;
+  title: string;
+  body: string; // plain text; the school's markup is stripped
+  start: string; // local date YYYY-MM-DD, "" when open-ended
+  end: string;
+}
+export interface Link {
+  title: string;
+  url: string; // absolute http(s) URL
+  /**
+   * Conference marks links that look like parent-teacher conference booking.
+   */
+  conference: boolean;
 }
 export interface Profile {
   firstName: string;
